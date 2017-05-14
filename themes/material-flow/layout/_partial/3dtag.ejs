@@ -1,0 +1,8 @@
+
+<div id="tagscloud">
+        <% (theme.sitetags||[]).forEach(function(value){ %>
+            <a class='tagc1' href='<%=url_for(value.url)%>'  target="<%=value.break==true?'_blank':'_top'%>" >
+                <%=value.name%>
+            </a>
+        <%})%>
+</div>

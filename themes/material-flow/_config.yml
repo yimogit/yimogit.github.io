@@ -1,0 +1,76 @@
+# Search
+search: 
+  enable: true
+  service: hexo # google/hexo/algolia/azure/baidu
+  # google 
+  google_api_key:
+  google_engine_id:
+  # algolia
+  algolia_app_id:
+  algolia_api_key:
+  algolia_index_name:
+  # azure
+  azure_service_name:
+  azure_index_name:
+  azure_query_key:
+  # baidu
+  baidu_api_id:
+
+# 友情链接
+links:
+  - name: metools
+    url: https://tools.yimo.link/
+
+# 菜单
+menu:
+  - name: 首页
+    slug: home
+    url: /
+  - name: 归档
+    slug: archives
+    url: /archives
+  - name: 个人工具
+    slug: meTools
+    url: https://tools.yimo.link/
+    break: true
+  - name: 私人定制
+    slug: meApp
+    url: http://app.yimo.link
+    break: true
+  - name: 关于
+    slug: about
+    url: /about
+# 网站标签
+sitetags:
+  - name: dotnet
+    break: false
+    url: /
+
+# 组件
+widgets:
+  - about
+  - links
+  - categories
+  - tagcloud
+
+# Less
+less:
+  compress: true
+# use url, not username
+social:
+- slug: github
+  url: https://github.com/yimogit
+- slug: rss
+  url: http://www.cnblogs.com/morang/
+- slug: rss
+	url: /atom.xml
+
+# 畅言评论
+changyan_enable: true
+changyan_appid: cys5no60I
+changyan_conf: prod_b1c091f2c20426abdaa5aa83a7f0c12c
+# 不蒜子
+busuanzi_enable: true
+
+# 底部主题链接
+zhuticopy_enable: true

@@ -1,0 +1,45 @@
+<article id="<%= post.layout %>-<%= post.slug %>"
+  class="post white-box article-type-<%= post.layout %>"
+  itemscope itemprop="blogPost">
+	<section class='meta'>
+	<h2 class="title">
+  	<a href="<%- url_for(post.path) %>">
+    	<%= post.title %>
+    </a>
+  </h2>
+	<% if(date(post.date, config.date_format)!='1900-01-01'){%>
+	<time>
+	  <%= date(post.date, config.date_format+' '+config.time_format) %>
+	</time>
+	<%}%>
+	<%- partial('categories',{post:post}) %>
+	</section>
+	<% if(post.toc!==false){ %>
+		<section class="toc-wrapper"><%- toc(post.content) %></section>
+	<% } %>
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<%- post.content %>
+  	</div>
+	  <% if (post.tags && post.tags.length) { %>
+	  <div class="article-tags tags">
+      <% post.tags.each(function(item){ %>
+        <a href="<%- url_for(item.path) %>"><%=item.name %></a>
+      <%})%>
+	  </div>
+    <% } %>
+	</section>
+	<% if (post.comments){ %>
+		<section id="comments">
+				<div id="SOHUCS" sid="<%= post.title %>"></div>
+		</section>
+	<% } %>
+</article>
+<script>
+	window.subData = {
+		title: '<%= post.title %>',
+		tools: true
+	}
+</script>
+
+<%- partial('./changyan.ejs') %>
