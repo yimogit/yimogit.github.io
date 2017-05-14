@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>weexpack打包weex项目运行/打包记录 | 易墨&#39;s_Blog</title>
+  <meta name="description" content="一个叫做易墨的博客" />
+  <meta name="keywords" content="yimo,易墨" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="易墨's_Blog">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="构建weex项目 安装weex-toolkit  cnpm install -g weex-toolkit        初始化一个项目只需新建文件夹并在目录下执行 weex init 即可      安装依赖：cnpm install   编译项目：npm run dev    启动服务器：npm run serve //可以修改package.json的端口号来改变监听端口">
+<meta name="keywords" content="环境搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="weexpack打包weex项目运行&#x2F;打包记录">
+<meta property="og:url" content="http://yimo.link/2017/05/14/06-weex-build-apk/index.html">
+<meta property="og:site_name" content="易墨&#39;s_Blog">
+<meta property="og:description" content="构建weex项目 安装weex-toolkit  cnpm install -g weex-toolkit        初始化一个项目只需新建文件夹并在目录下执行 weex init 即可      安装依赖：cnpm install   编译项目：npm run dev    启动服务器：npm run serve //可以修改package.json的端口号来改变监听端口">
+<meta property="og:image" content="https://dn-coding-net-production-pp.qbox.me/bbe02f9d-111a-4200-960a-d6f7931f56b7.png">
+<meta property="og:image" content="https://dn-coding-net-production-pp.qbox.me/07d500bd-b616-49b2-9d30-68ef068ff51b.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/662652/201703/662652-20170301074624704-1290399162.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/662652/201703/662652-20170301075210157-753921257.png">
+<meta property="og:updated_time" content="2017-05-14T07:45:05.984Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="weexpack打包weex项目运行&#x2F;打包记录">
+<meta name="twitter:description" content="构建weex项目 安装weex-toolkit  cnpm install -g weex-toolkit        初始化一个项目只需新建文件夹并在目录下执行 weex init 即可      安装依赖：cnpm install   编译项目：npm run dev    启动服务器：npm run serve //可以修改package.json的端口号来改变监听端口">
+<meta name="twitter:image" content="https://dn-coding-net-production-pp.qbox.me/bbe02f9d-111a-4200-960a-d6f7931f56b7.png">
+    
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link href='//cdn.bootcss.com/node-waves/0.7.5/waves.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >
+				易墨's_Blog
+			</a>
+			<div class='menu'>
+				<ul class='h-list'>
+					
+						<li>
+							<a class='flat-box nav-home' href='/'  target="_top" >
+								首页
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-archives' href='/archives'  target="_top" >
+								归档
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-meTools' href='https://tools.yimo.link/'  target="_blank" >
+								个人工具
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-meApp' href='http://app.yimo.link'  target="_blank" >
+								私人定制
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-about' href='/about'  target="_top" >
+								关于
+							</a>
+						</li>
+					
+				</ul>
+				<div class='underline'></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a href='javascript:void(0)'><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class='s-menu'><a href='javascript:void(0)'><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+		
+		<div class='nav-sub container container--flex'>
+			<a class="logo" class="flat-box" href='javascript:void(0)'>
+				Word of Forks
+			</a>
+
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a href='javascript:void(0)'><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class='s-top'><a href='javascript:void(0)'><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+
+			<a href="/" class="nav-home nav">
+				首页
+			</a>
+		
+
+			<a href="/archives" class="nav-archives nav">
+				归档
+			</a>
+		
+
+			<a href="https://tools.yimo.link/" class="nav-meTools nav">
+				个人工具
+			</a>
+		
+
+			<a href="http://app.yimo.link" class="nav-meApp nav">
+				私人定制
+			</a>
+		
+
+			<a href="/about" class="nav-about nav">
+				关于
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-06-weex-build-apk"
+  class="post white-box article-type-post"
+  itemscope itemprop="blogPost">
+	<section class='meta'>
+	<h2 class="title">
+  	<a href="/2017/05/14/06-weex-build-apk/">
+    	weexpack打包weex项目运行/打包记录
+    </a>
+  </h2>
+	
+	<time>
+	  2017-05-14 13:37:33
+	</time>
+	
+	
+    
+    <div class='cats'>
+        <a href="/categories/程序猿之路/">程序猿之路</a>
+    </div>
+
+	</section>
+	
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#构建weex项目"><span class="toc-number">1.</span> <span class="toc-text">构建weex项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用weexpack打包weex项目"><span class="toc-number">2.</span> <span class="toc-text">使用weexpack打包weex项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#weexpack-介绍-更多详情见Github"><span class="toc-number">2.1.</span> <span class="toc-text">weexpack 介绍 更多详情见Github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始我的安装"><span class="toc-number">2.2.</span> <span class="toc-text">开始我的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">2.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<h1 id="构建weex项目"><a href="#构建weex项目" class="headerlink" title="构建weex项目"></a>构建weex项目</h1><ol>
+<li>安装weex-toolkit  <code>cnpm install -g weex-toolkit</code>       </li>
+<li>初始化一个项目只需新建文件夹并在目录下执行 <code>weex init</code> 即可     </li>
+<li>安装依赖：<code>cnpm install</code>  </li>
+<li>编译项目：<code>npm run dev</code>   </li>
+<li>启动服务器：<code>npm run serve</code> //可以修改package.json的端口号来改变监听端口                   </li>
+<li>可以执行的命令一览<br> <img src="https://dn-coding-net-production-pp.qbox.me/bbe02f9d-111a-4200-960a-d6f7931f56b7.png" alt="图片"> </li>
+</ol>
+<a id="more"></a>
+<h1 id="使用weexpack打包weex项目"><a href="#使用weexpack打包weex项目" class="headerlink" title="使用weexpack打包weex项目"></a>使用weexpack打包weex项目</h1><blockquote>
+<p>各种百度 ‘weex打包’ ‘如何打包weex apk’ ‘weex 发布 apk’  未果<br>最后在<a href="https://github.com/weexteam/article/issues/4#issuecomment-268810351" target="_blank" rel="external">这里</a>看到了这玩意T_T</p>
+</blockquote>
+<h2 id="weexpack-介绍-更多详情见Github"><a href="#weexpack-介绍-更多详情见Github" class="headerlink" title="weexpack 介绍 更多详情见Github"></a>weexpack 介绍 <a href="https://github.com/weexteam/weex-pack/blob/master/README.md" target="_blank" rel="external">更多详情见Github</a></h2><p>weexpack 是 weex 新一代的工程开发套件，是基于weex快速搭建应用原型的利器。它能够帮助开发者通过命令行创建weex工程，添加相应平台的weex app模版，并基于模版从本地、GitHub 或者  weex 应用市场安装插件，快速打包 weex 应用并安装到手机运行，对于具有分享精神的开发者而言还能够创建weex插件模版并发布插件到weex应用市场。</p>
+<h2 id="开始我的安装"><a href="#开始我的安装" class="headerlink" title="开始我的安装"></a>开始我的安装</h2><ol>
+<li><p>安装Android需要的环境：android环境折腾可参考<a href="http://www.cnblogs.com/morang/p/react-native-java-build.html" target="_blank" rel="external">windows下react-native环境搭建</a>    </p>
+</li>
+<li><p>安装weexpack：<a href="https://github.com/weexteam/weex-pack" target="_blank" rel="external">项目地址</a><br> <code>cnpm install -g weexpack</code>            </p>
+</li>
+<li>初始化一个weexpack程序：<br> <code>weexpack init dsb-weexpack</code></li>
+<li>还原依赖：<br> <code>cnpm install</code></li>
+<li>如果没有安装android SDK的好需要去安装sdk，安装好了就添加平台到项目：<code>weexpack platform add android</code><br>  <img src="https://dn-coding-net-production-pp.qbox.me/07d500bd-b616-49b2-9d30-68ef068ff51b.png" alt="图片"> </li>
+<li><p>修改gradle-wrapper.properties文件gradle下载地址distributionUrl值为：<code>distributionUrl=file:///F:/gradle-2.14.1-all.zip</code></p>
+</li>
+<li><p>打包编译：<br> <code>weexpack build android</code>        </p>
+</li>
+<li>苦等ing……</li>
+<li>两天过去了，于3月1日清晨成功下载完毕，且没有挂vpn~<br>生成文件如图所示<br><img src="http://images2015.cnblogs.com/blog/662652/201703/662652-20170301074624704-1290399162.png" alt=""></li>
+<li>在夜神模拟器运行：首先使用adb连接到夜神模拟器<code>adb connect 127.0.0.1:62001</code>,再执行<code>weexpack run android</code>即可在模拟器中运行<br><img src="http://images2015.cnblogs.com/blog/662652/201703/662652-20170301075210157-753921257.png" alt=""></li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a href="https://github.com/weexteam/weex-pack" target="_blank" rel="external">https://github.com/weexteam/weex-pack</a><br><a href="https://github.com/vczero/weex-learning" target="_blank" rel="external">https://github.com/vczero/weex-learning</a><br><a href="https://github.com/apache/incubator-weex" target="_blank" rel="external">https://github.com/apache/incubator-weex</a></p>
+</blockquote>
+
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/环境搭建/">环境搭建</a>
+      
+	  </div>
+    
+	</section>
+	
+		<section id="comments">
+				<div id="SOHUCS" sid="weexpack打包weex项目运行/打包记录"></div>
+		</section>
+	
+</article>
+<script>
+	window.subData = {
+		title: 'weexpack打包weex项目运行/打包记录',
+		tools: true
+	}
+</script>
+
+
+    <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+    <script type="text/javascript">
+        window.changyan.api.config({ appid: 'cys5no60I', conf: 'prod_b1c091f2c20426abdaa5aa83a7f0c12c' });
+    </script>
+
+
+      </div>
+      <aside class='l_side'>
+        
+  <section class='m_widget about'>
+
+<img class='avatar waves-image' src='/images/avatar.jpg' />
+
+<div class='header'>易墨</div>
+<div class='content'>
+<div class='desc'><b>过去过不的都会过去</b></div>
+</div>
+</section>
+
+  
+<section class='m_widget links'>
+<div class='header'>友情链接</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://tools.yimo.link/">
+            <div class='name'>metools</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section>
+
+  <section class='m_widget categories'>
+<div class='header'>分类</div>
+<div class='content'>
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/程序猿之路/"><div class='name'>程序猿之路</div><div class='badget'>7</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+  
+<div class="m_widget tagcloud">
+    <div class="header">标签</div>
+    <div class='content'>
+        <a href="/tags/mvc/" style="font-size: 14px; color: #808080">mvc</a> <a href="/tags/node/" style="font-size: 20px; color: #000">node</a> <a href="/tags/环境搭建/" style="font-size: 20px; color: #000">环境搭建</a> <a href="/tags/闲言碎语/" style="font-size: 14px; color: #808080">闲言碎语</a>
+    </div>
+</div>
+
+
+
+<div id="tagscloud">
+        
+            <a class='tagc1' href='/'  target="_top" >
+                dotnet
+            </a>
+        
+</div>
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/yimogit" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="http://www.cnblogs.com/morang/" class="social rss"
+          target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss"
+          target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+  
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv">...</span>
+</span>
+<br/>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数:<span id="busuanzi_value_site_uv">...</span>
+</span>
+  
+  
+    <div>hexo 主题 <a href='https://github.com/stkevintan/hexo-theme-material-flow' class="codename">MaterialFlow</a> designed by <a href="http://keyin.me/" target="_blank">Kevin Tan</a>.</div>
+  
+</footer>
+
+
+  <script>setLoadingBarProgress(80);</script>
+  
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
