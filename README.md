@@ -30,6 +30,7 @@ hexo server
 
 3. hexo deploy
 
-线上地址：http://ymhexo.yimo.link/
+Coding：https://yimocoding.coding.me/
+Github: https://yimogit.github.io/
 
 使用的主题：https://github.com/stkevintan/hexo-theme-material-flow
