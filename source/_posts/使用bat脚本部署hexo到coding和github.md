@@ -23,7 +23,7 @@ tags: web开发
 * codingPath coding的目录    
 * githubPath github的目录    
 
-## 复制文章然后自动执行命令进行部署
+### 复制文章然后自动执行命令进行部署
 
 > 修改脚本中对应的路径后执行`push`
 
@@ -38,7 +38,7 @@ call git commit -m AddArticle
 call git push
 ```
 <!--more-->
-## 优化v1-加入变量并读取第一个参数为注释
+### 优化v1-加入变量并读取第一个参数为注释
 
 > 查阅了果然cmd是有变量的，所以提前了路径到变量中，注释也可以传入了
 > 使用`push 修改文章`,提交之后注释为update_修改文章，可省略参数
@@ -57,7 +57,7 @@ call git add *
 call git commit -m update_%1
 call git push
 ```
-## 优化v2-多个仓库的部署
+### 优化v2-多个仓库的部署
 
 > 复制粘贴是最简单的了，but~ 我感觉还能再优化下
 > 定义变量，然后保存到字符串str中，通过赋值str后调整到for取下一个值实现一个路径的先入先出的T_T【笑哭】可以算作循环数组的方法了
