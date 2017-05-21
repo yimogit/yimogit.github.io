@@ -1,3 +1,10 @@
+---
+title: Git常用命令记录
+categories:
+  - 程序猿之路
+tags: web开发
+---
+
 ## 配置本地仓库 
 
 * `git config --global user.name、git config --global user.email`
@@ -34,7 +41,7 @@
 * `git clone 仓库地址` --克隆远程仓库的默认分支，可以是本地文件路径，也可以是远程地址 
 * `git clone https://github.com/../xxx.git -b 分支名称` --克隆远程仓库的指定分支   
 * `git clone https://github.com/../xxx.git 文件夹路径` --克隆远程仓库到指定文件夹    
-
+<!--more-->
 ## 分支操作
 
 >命令中的origin为默认的主机别名 
