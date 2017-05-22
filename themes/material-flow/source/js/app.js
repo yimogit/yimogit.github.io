@@ -191,6 +191,18 @@ var customSearch;
 			},1);
 		}
 	}
+	function InitTongJi(){
+		if(location.hostname=='localhost'){
+			return;
+		}
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?298d27b32ab956da6c429baf431a993d";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+        })();
+	}
 
 	$(function () {
 		//set header
@@ -200,6 +212,7 @@ var customSearch;
 		setHeaderSearch();
 		renderTimeline();
 		setWaves();
+    	InitTongJi();
 		setScrollReveal();
 		setTocToggle();
 		// getHitokoto();
