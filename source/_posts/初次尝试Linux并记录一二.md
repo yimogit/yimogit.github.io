@@ -7,9 +7,9 @@ tags: linux
 ---
 ## 假如我有一个Linux系统
 
-    安装过程：加载中...
-    版本：Ubuntu Server 16.04.1 LTS 64位
-    得到一个IP：*.*.*.*
+安装过程：加载中...
+版本：Ubuntu Server 16.04.1 LTS 64位
+得到一个IP：*.*.*.*
 
 ## 下载工具   
 

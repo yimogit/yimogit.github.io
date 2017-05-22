@@ -65,12 +65,12 @@ tags:
 * `git pull` --更新当前分支       
 * `git pull origin 远程分支:本地分支` --取回origin主机的远程分支，与指定本地分支合并       
 
-### --删除远程分支
+### 删除远程分支
 
 * `git push origin --delete 分支名称` --v1.7.0+     
 * `git push origin :分支名称` --删除远程分支,例：`git push origin :gh-pages`，意为将空白分支变成远程分支      
 
-### --重命名远程分支
+### 重命名远程分支
 
 1. `git push --delete origin 远程分支` -- 删除本地远程分支（github上需为非默认分支）      
 2. `git branch -m 本地分支 新远程分支名` --重命名分支          
