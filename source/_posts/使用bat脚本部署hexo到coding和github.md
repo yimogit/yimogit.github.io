@@ -1,8 +1,11 @@
 ---
 title: 使用bat脚本部署hexo到coding和github
+date: '2017-05-21 01:46'
 categories:
-  - 程序猿之路
-tags: web开发
+  - 全栈
+tags: 
+  - hexo
+  - 脚本
 ---
 
 > 因项目的不同适当的改造吧，本文以hexo为例。

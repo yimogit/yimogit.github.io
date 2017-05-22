@@ -1,9 +1,15 @@
 ---
-title: 2017，我迈出了第一步
+title: 过去式的blogsv3
+date: '2017-01-01 09:52'
 tags: 闲言碎语
 categories:
   - 程序猿之路
 ---
+
+> BlogV3--此为过去式~截图留恋
+    ![](http://images2015.cnblogs.com/blog/662652/201705/662652-20170522175645679-1665146531.png)
+> BlogV4已上线：hexo强力驱动 https://coding.net/u/yimocoding/p/yimocoding/git
+    ![](http://images2015.cnblogs.com/blog/662652/201705/662652-20170522182314007-1205193864.png)
 
 # 博客满血复活了，啦啦啦
 

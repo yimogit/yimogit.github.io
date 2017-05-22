@@ -1,8 +1,10 @@
 ---
 title: windows下使用bat脚本部署hexo到coding和github
+date: '2017-05-21'
 categories:
-  - 程序猿之路
-tags: web开发
+  - 全栈
+tags: 
+  - hexo
 ---
 ## 拉取coding.net的代码和github的代码到本地
 
@@ -30,6 +32,7 @@ call git add *
 call git commit -m AddArticle
 call git push
 ```
+<!--more-->
 ### 优化-加入变量并读取第一个参数为注释
 
 > 查阅了果然cmd是有变量的，所以提前了路径到变量中，注释也可以传入了

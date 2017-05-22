@@ -1,8 +1,10 @@
 ---
 title: 使用node自动生成html并调用cmd命令提交代码到仓库
-tags: node
+date: '2017-05-06 21:41'
 categories:
-  - 程序猿之路
+  - 全栈
+tags: 
+  - nodejs
 ---
 # 生成html提交到git仓库
 

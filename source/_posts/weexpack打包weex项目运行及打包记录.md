@@ -1,8 +1,10 @@
 ---
-title: weexpack打包weex项目运行/打包记录
-tags: 环境搭建
+title: weexpack打包weex项目运行及打包记录
+date: '2017-03-01 08:23'
 categories:
-  - 程序猿之路
+  - 全栈
+tags: 
+  - weex
 ---
 # 构建weex项目
 

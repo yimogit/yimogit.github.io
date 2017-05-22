@@ -20,6 +20,10 @@ search:
 links:
   - name: metools
     url: https://tools.yimo.link/
+  - name: 知乐博客
+    url: http://www.yalunwang.com/
+  - name: szhshp的第三边境研究所
+    url: http://szhshp.org/
 
 # 菜单
 menu:
@@ -29,6 +33,9 @@ menu:
   - name: 归档
     slug: archives
     url: /archives
+  - name: 闲言碎语
+    slug: gossip
+    url: /gossip
   - name: 个人工具
     slug: meTools
     url: https://tools.yimo.link/
@@ -60,6 +67,8 @@ less:
 social:
 - slug: github
   url: https://github.com/yimogit
+- slug: coding
+  url: https://coding.net/u/yimocoding
 - slug: rss
   url: http://www.cnblogs.com/morang/
 - slug: rss

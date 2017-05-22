@@ -1,8 +1,11 @@
 ---
 title: 从零开始在win10系统搭建react-native开发环境
-tags: 环境搭建
+date: '2017-01-08 04:56'
 categories:
-  - 程序猿之路
+  - 全栈
+tags: 
+  - react
+  - 环境搭建
 ---
 # win10 react-native环境搭建            
 ------------------------------------

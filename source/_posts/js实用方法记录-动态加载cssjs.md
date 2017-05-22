@@ -1,8 +1,10 @@
 ---
 title: js实用方法记录-动态加载css、js
+date: '2017-05-19 11:26'
 categories:
-  - 程序猿之路
-tags: web开发
+  - web开发
+tags: 
+  - js
 ---
 # js实用方法记录-动态加载css、js
 

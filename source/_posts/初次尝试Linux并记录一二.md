@@ -1,7 +1,8 @@
 ---
 title: 初次尝试Linux并记录一二
+date: '2017-05-19 17:54'
 categories:
-  - 程序猿之路
+  - 全栈
 tags: linux
 ---
 ## 假如我有一个Linux系统

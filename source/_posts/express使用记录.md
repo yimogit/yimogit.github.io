@@ -1,8 +1,11 @@
 ---
-title: 随便记录下系列 - node->express
+title: express使用记录
+date: '2017-05-06 21:37'
 categories:
-  - 程序猿之路
-tags: node
+  - web开发
+tags:
+  - nodejs
+  - express
 ---
 
 # 随便记录下系列 - node->express

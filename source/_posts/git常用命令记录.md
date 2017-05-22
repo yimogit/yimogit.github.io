@@ -1,8 +1,10 @@
 ---
 title: Git常用命令记录
+date: '2017-05-21 23:54'
 categories:
-  - 程序猿之路
-tags: web开发
+  - 全栈
+tags: 
+  - git
 ---
 
 ## 配置本地仓库 

@@ -1,8 +1,10 @@
 ---
 title: asp.net mvc项目自定义区域
+date: '2016-12-31 00:40'
 categories:
-  - 程序猿之路
-tags: mvc
+  - dotnet
+tags: 
+  - dotnet
 ---
 # 前言
 >直接上干货就是，就不废话了。     

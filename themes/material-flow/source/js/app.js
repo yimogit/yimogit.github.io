@@ -169,34 +169,28 @@ var customSearch;
 			});
 		scrollListener();
 	}
-
-	// function getPicture() {
-	// 	const $banner = $('.banner');
-	// 	if ($banner.length === 0) return;
-	// 	const url = ROOT + 'js/lovewallpaper.json';
-	// 	$.get(url).done(res => {
-	// 		if (res.data.length > 0) {
-	// 			const index = Math.floor(Math.random() * res.data.length);
-	// 			$banner.css('background-image', 'url(' + res.data[index].big + ')');
-	// 		}
-	// 	})
-	// }
-
-	// function getHitokoto() {
-	// 	const $hitokoto = $('#hitokoto');
-	// 	if($hitokoto.length === 0) return;
-	// 	const url = 'http://api.hitokoto.us/rand?length=80&encode=jsc&fun=handlerHitokoto';
-	// 	$('body').append('<script	src="%s"></script>'.replace('%s',url));
-	// 	window.handlerHitokoto = (data) => {
-	// 		$hitokoto
-	// 			.css('color','transparent')
-	// 			.text(data.hitokoto)
-	// 		if(data.source) $hitokoto.append('<cite> ——  %s</cite>'.replace('%s',data.source));
-	// 		else if(data.author) $hitokoto.append('<cite> ——  %s</cite>'.replace('%s',data.author));
-	// 		$hitokoto.css('color','white');
-	// 	}
-	// }
-
+    /**
+	 * 渲染时间轴
+	 * 渲染条件
+	 * <timeline></timeline>
+	 * ## 标题
+	 * 内容
+	 */
+	function renderTimeline(){
+		var html='<ul class="ant-timeline">';
+		if($("timeline").length>0){
+			var arr=$(".article-entry h2")
+			for(var i=arr.length-1;i>=0;i--){
+				html+=('<li class="ant-timeline-item"><div class="ant-timeline-item-tail"></div><div class="ant-timeline-item-head ant-timeline-item-head-blue"></div><div class="ant-timeline-item-content"><span>'+$(arr[i]).text()+'</span><br><div class="post-title">'+$(arr[i]).next().html()+'</div></div></li>');
+			}
+				
+			html+='</ul>';
+			setTimeout(function(){
+				$("timeline").siblings().html("")
+				$("timeline").html(html);
+			},1);
+		}
+	}
 
 	$(function () {
 		//set header
@@ -204,6 +198,7 @@ var customSearch;
 		setHeaderMenu();
 		setHeaderMenuPhone();
 		setHeaderSearch();
+		renderTimeline();
 		setWaves();
 		setScrollReveal();
 		setTocToggle();
