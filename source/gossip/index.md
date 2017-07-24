@@ -1,6 +1,6 @@
 ---
 title: 闲言碎语
-date: '1900-01-01'
+hidetime: true
 ---
 <timeline></timeline>
 
