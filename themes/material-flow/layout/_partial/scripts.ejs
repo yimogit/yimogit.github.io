@@ -1,8 +1,8 @@
 
-<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src='//cdn.bootcss.com/node-waves/0.7.5/waves.min.js'></script>
-<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
-<%- js('js/jquery.fitvids.js') %>
+<%- js(theme.cdn_root+'assets/js/jquery.min.js') %>
+<%- js(theme.cdn_root+'assets/js/waves.min.js') %>
+<%- js(theme.cdn_root+'assets/js/scrollreveal.min.js') %>
+<%- js(theme.cdn_root+'assets/js/jquery.fitvids.js') %>
 <script>
 	var GOOGLE_CUSTOM_SEARCH_API_KEY = "<%- theme.search.google_api_key %>";
 	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "<%- theme.search.google_engine_id %>";
@@ -17,6 +17,8 @@
   var ROOT = "<%- config.root %>"||"/";
   if(!ROOT.endsWith('/'))ROOT += '/';
 </script>
-<%- js('js/search.js') %>
-<%- js('js/app.js') %>
-
+<%- js(theme.cdn_root+'assets/js/search.js') %>
+<%- js(theme.cdn_root+'assets/js/app.js') %>
+<script>
+  InitTongJi("<%=theme.baidutongji_key%>");
+</script>

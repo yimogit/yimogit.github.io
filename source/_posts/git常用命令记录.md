@@ -9,7 +9,10 @@ tags:
 
 ## 配置本地仓库 
 
-* `git config --global user.name、git config --global user.email`
+* 设置用户名：`git config --global user.name 易墨`     
+* 设置邮箱：`git config --global user.email yimo@yimo.com`
+* 删除配置： `git config --global --unset key`
+> [更多](http://blog.csdn.net/sky1203850702/article/details/40985505)
 
 ## 查看配置详情 
 
@@ -23,7 +26,7 @@ tags:
 ## 查看当前仓库的状态
 
 * `git status`
-
+<!--more-->
 ## 添加文件到暂存区
 
 * `git add *` --添加当前目录下的所有未排除的文件,或使用`git add --all` 
@@ -32,7 +35,21 @@ tags:
 
 ## 提交到本地仓库
 
-* `git commit -m '备注信息'`
+* `git commit -m 备注信息`        
+
+## 撤销修改 
+
+* `git checkout .` --撤销本地所有修改
+* `git checkout 路径/*.cs`--撤销本地路径下的所有cs文件
+
+* `git revert` --将需要revert的版本的内容再反向修改回去，版本会递增，不影响之前提交的内容
+* `git revert HEAD` --撤销前一次commit
+* `git revert HEAD^` --撤销前前一次commit
+* `git revert commitid` --撤销指定版本
+
+* `git reset` 撤销暂存
+* `git reset HEAD <file>` --撤销已经被暂存的文件
+
 
 ## 查看本地仓库的提交历史
 
@@ -43,7 +60,8 @@ tags:
 * `git clone 仓库地址` --克隆远程仓库的默认分支，可以是本地文件路径，也可以是远程地址 
 * `git clone https://github.com/../xxx.git -b 分支名称` --克隆远程仓库的指定分支   
 * `git clone https://github.com/../xxx.git 文件夹路径` --克隆远程仓库到指定文件夹    
-<!--more-->
+
+
 ## 分支操作
 
 >命令中的origin为默认的主机别名 

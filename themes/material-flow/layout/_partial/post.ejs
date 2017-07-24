@@ -7,9 +7,12 @@
       </a>
     </h2>
     <% } %>
+    
+  	<% if(post.hidetime!=true){%>
     <time>
       <%= date(post.date, config.date_format+' '+config.time_format) %>
     </time>
+    <% } %>
 		<%- partial('categories',{post:post}) %>
   </section>
   <section class="article typo">
@@ -17,7 +20,7 @@
 
     <% if (post.excerpt) { %>
 	  <div class="readmore">
-      <a href="<%- url_for(post.path) %>">查看全文</a>
+      <a href="<%- url_for(post.path) %>">查看更多</a>
     </div>
     <% } %>
     

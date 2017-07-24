@@ -1,7 +1,7 @@
-<% if (site.tags.length){ %>
+<% if (site.tags && site.tags.length){ %>
 <div class="m_widget tagcloud">
-    <div class="header">标签</div>
-    <div class='content'>
+    <div class="header">标了个签</div>
+    <div class='content' id="tagscloud">
         <%- tagcloud(site.tags, {
             min_font: 14, 
             max_font: 20, 
@@ -13,4 +13,3 @@
 </div>
 <% } %>
 
-<%- partial('../_partial/3dtag.ejs')%>

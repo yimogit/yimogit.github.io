@@ -7,9 +7,9 @@ categories:
 ---
 
 > BlogV3--此为过去式~截图留恋
-    ![](http://images2015.cnblogs.com/blog/662652/201705/662652-20170522175645679-1665146531.png)
+    ![](http://images2015.cnblogs.com/blog/662652/201705/662652-20170522175645679-1665146531.png) 图片再也找不回来了~
 > BlogV4已上线：hexo强力驱动 https://coding.net/u/yimocoding/p/yimocoding/git
-    ![](http://images2015.cnblogs.com/blog/662652/201705/662652-20170522182314007-1205193864.png)
+     ![图片](https://dn-coding-net-production-pp.qbox.me/42167a24-b588-4252-b187-fd315bec4576.png) 
 
 # 博客满血复活了，啦啦啦
 

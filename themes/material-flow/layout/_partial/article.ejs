@@ -4,10 +4,10 @@
 	<section class='meta'>
 	<h2 class="title">
   	<a href="<%- url_for(post.path) %>">
-    	<%= post.title %>
+    	<%= post.title %> 
     </a>
-  </h2>
-	<% if(date(post.date, config.date_format)!='1900-01-01'){%>
+  </h2>	
+	<% if(post.hidetime!=true){%>
 	<time>
 	  <%= date(post.date, config.date_format+' '+config.time_format) %>
 	</time>
@@ -28,11 +28,26 @@
       <%})%>
 	  </div>
     <% } %>
+	  <% if(post.hidetime!=true && (post.prev || post.next)){%>
+		<div class="art-item-footer">
+				<% if(post.prev){ %>
+					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>上一篇：<a href="<%=url_for(post.prev.path)%>" rel="prev"  title="<%=post.prev.title%>">
+						<%= post.prev.title %> 
+					</a></span>
+				<% } %>
+				<% if(post.next){ %>
+					<span class="art-item-right">下一篇：<a href="<%=url_for(post.next.path) %>" rel="next"  title="<%=post.next.title %>">
+						<%=post.next.title  %>
+					</a><i class="icon icon-chevron-thin-right"></i></span>
+				<%} %>
+		</div>
+		<%}%>
 	</section>
 	<% if (post.comments){ %>
 		<section id="comments">
 				<div id="SOHUCS" sid="<%= post.title %>"></div>
 		</section>
+		<%- partial('./changyan.ejs') %>
 	<% } %>
 </article>
 <script>
@@ -42,4 +57,3 @@
 	}
 </script>
 
-<%- partial('./changyan.ejs') %>

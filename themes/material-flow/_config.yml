@@ -63,6 +63,8 @@ widgets:
 # Less
 less:
   compress: true
+# cdn_root: /
+cdn_root: //yimogit.github.io/
 # use url, not username
 social:
 - slug: github
