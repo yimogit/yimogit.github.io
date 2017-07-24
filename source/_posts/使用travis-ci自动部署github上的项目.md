@@ -22,6 +22,8 @@ tags:
 > 使用Github账号登录
 ![图片](https://dn-coding-net-production-pp.qbox.me/add807a1-5617-4df6-ba0d-a63568bbffd6.png)
 
+<!--more-->
+
 ## 3. 登录成功回到用户中心
 > 默认会同步一部分仓库，如果太多的话需要点击Sync account进行同步
 > ![图片](https://dn-coding-net-production-pp.qbox.me/155adb08-745f-4937-ad64-15eae01ef7e3.png) 
