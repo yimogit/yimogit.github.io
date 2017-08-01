@@ -102,7 +102,7 @@ tags:
 node官网历史版本修改下载链接的值就能下载历史版本了
 如：我使用的是版本是[V6.2.0](https://nodejs.org/dist/v6.2.0/node-v6.2.0-x64.msi)      
 然后就是node的一些设置了      
-`npm config set prefix "D:\Program Files\nodejs\node_global"`  //设置全局包目录   
+`npm config set prefix "D:\Program Files\nodejs\node_global"`  //设置全局包目录,全局安装的工具等会放在此目录下，故windows下需要设置环境变量    
 `npm config set cache "D:\Program Files\nodejs\node_cache"`    //设置缓存目录
 `npm config set registry https://registry.npm.taobao.org"`     //设置淘宝镜像
 
