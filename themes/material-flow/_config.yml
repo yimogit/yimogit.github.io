@@ -24,7 +24,8 @@ links:
     url: http://www.yalunwang.com/
   - name: szhshp的第三边境研究所
     url: http://szhshp.org/
-
+  - name: 快递查询
+    url: https://m.kuaidi100.com/
 # 菜单
 menu:
   - name: 首页
