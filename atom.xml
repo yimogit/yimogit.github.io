@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>易墨&#39;s_Blog</title>
+  
+  <subtitle>易墨&#39;s_Blog</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://yimogit.github.io/"/>
+  <updated>2018-07-17T07:19:45.863Z</updated>
+  <id>https://yimogit.github.io/</id>
+  
+  <author>
+    <name>易墨</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用travis-ci集成一个vue.js项目</title>
+    <link href="https://yimogit.github.io/2017/07/24/%E4%BD%BF%E7%94%A8travis-ci%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2github%E4%B8%8A%E7%9A%84%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://yimogit.github.io/2017/07/24/使用travis-ci自动部署github上的项目/</id>
+    <published>2017-07-24T05:55:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;travis-ci是什么？&quot;&gt;&lt;a href=&quot;#travis-ci是什么？&quot; class=&quot;headerlink&quot; title=&quot;travis-ci是什么？&quot;&gt;&lt;/a&gt;travis-ci是什么？&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;一个使用yaml格式配置用于持续集成完成自动化测试部署的开源项目&lt;br&gt;官网：&lt;a href=&quot;https://travis-ci.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://travis-ci.org/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;使用travis-ci集成vue-js项目&quot;&gt;&lt;a href=&quot;#使用travis-ci集成vue-js项目&quot; class=&quot;headerlink&quot; title=&quot;使用travis-ci集成vue.js项目&quot;&gt;&lt;/a&gt;使用travis-ci集成vue.js项目&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;首先，您需要一个github账号 and 一个vue.js项目~ 没有的话试试这个啊&lt;a href=&quot;https://github.com/yimogit/metools&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;metools&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-登录Github并拥有一个项目&quot;&gt;&lt;a href=&quot;#1-登录Github并拥有一个项目&quot; class=&quot;headerlink&quot; title=&quot;1. 登录Github并拥有一个项目&quot;&gt;&lt;/a&gt;1. 登录Github并拥有一个项目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;登录&lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github&lt;/a&gt; 然后Star,Fork &lt;a href=&quot;https://github.com/yimogit/metools&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;metools&lt;/a&gt;&lt;br&gt;当然可以先去看看这个项目是啥..&lt;a href=&quot;http://tools.yimo.link/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://tools.yimo.link/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2-前往travis-ci官网&quot;&gt;&lt;a href=&quot;#2-前往travis-ci官网&quot; class=&quot;headerlink&quot; title=&quot;2. 前往travis-ci官网&quot;&gt;&lt;/a&gt;2. 前往travis-ci官网&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;使用Github账号登录&lt;br&gt;&lt;img src=&quot;https://dn-coding-net-production-pp.qbox.me/add807a1-5617-4df6-ba0d-a63568bbffd6.png&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="持续集成" scheme="https://yimogit.github.io/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>asp.net mvc项目实记</title>
+    <link href="https://yimogit.github.io/2017/07/19/asp.net%20mvc%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%B0/"/>
+    <id>https://yimogit.github.io/2017/07/19/asp.net mvc项目实记/</id>
+    <published>2017-07-19T09:26:00.000Z</published>
+    <updated>2018-07-17T07:19:45.859Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;百度这些东西，还是会浪费了一些不必要的时间，记录记录以备后续&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、开启伪静态&quot;&gt;&lt;a href=&quot;#一、开启伪静态&quot; class=&quot;headerlink&quot; title=&quot;一、开启伪静态&quot;&gt;&lt;/a&gt;一、开启伪静态&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;如果不在web.config中配置管道开关则伪静态无效&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;首先在RouteConfig.cs中中注册路由      &lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;routes.MapRoute(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    name: &amp;quot;index&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    url: &amp;quot;index.html&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    defaults: new &amp;#123; controller = &amp;quot;Home&amp;quot;, action = &amp;quot;Index&amp;quot;, id = UrlParameter.Optional &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在web.config中的system.webServer节点添加配置项         &lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;system.webServer&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;modules runAllManagedModulesForAllRequests=&amp;quot;true&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/system.webServer&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="dotnet" scheme="https://yimogit.github.io/categories/dotnet/"/>
+    
+    
+      <category term="dotnet" scheme="https://yimogit.github.io/tags/dotnet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一个简单的时间轴demo</title>
+    <link href="https://yimogit.github.io/2017/07/18/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%97%B6%E9%97%B4%E8%BD%B4demo/"/>
+    <id>https://yimogit.github.io/2017/07/18/一个简单的时间轴demo/</id>
+    <published>2017-07-18T05:56:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一个时间轴的组成&quot;&gt;&lt;a href=&quot;#一个时间轴的组成&quot; class=&quot;headerlink&quot; title=&quot;一个时间轴的组成&quot;&gt;&lt;/a&gt;一个时间轴的组成&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;使用一个块级元素包裹内容，并未块级元素设置边框&lt;/li&gt;
+&lt;li&gt;定义圆形或者菱形等元素标签，子元素设置偏移或者定位元素将图标定位到边框上&lt;/li&gt;
+&lt;li&gt;使其中的内容不溢出，自动换行，内容自动撑高&lt;br&gt; 英文自动换行：&lt;code&gt;word-wrap:break-word;word-break:break-all&lt;/code&gt;
+    
+    </summary>
+    
+      <category term="web开发" scheme="https://yimogit.github.io/categories/web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="css" scheme="https://yimogit.github.io/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>asp.net-core踩坑记录</title>
+    <link href="https://yimogit.github.io/2017/07/09/asp.net-core%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"/>
+    <id>https://yimogit.github.io/2017/07/09/asp.net-core踩坑记录/</id>
+    <published>2017-07-09T04:40:00.000Z</published>
+    <updated>2018-07-17T07:19:45.859Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;系统：win10&lt;br&gt;VS版本：2017&lt;br&gt;.NET Core 版本： 1.1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;零-读取配置文件&quot;&gt;&lt;a href=&quot;#零-读取配置文件&quot; class=&quot;headerlink&quot; title=&quot;零.读取配置文件&quot;&gt;&lt;/a&gt;零.读取配置文件&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;参考：&lt;a href=&quot;http://www.tuicool.com/articles/QfYVBvi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.tuicool.com/articles/QfYVBvi&lt;/a&gt;&lt;/p&gt;
+&lt;ol start=&quot;0&quot;&gt;
+&lt;li&gt;此版本无需添加其他组件&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;appsettings.json&lt;/code&gt;配置中添加节点AppSettings&lt;br&gt;  &lt;img src=&quot;https://dn-coding-net-production-pp.qbox.me/6e12aae7-7ebd-486f-8775-e80c989eae97.png&quot; alt=&quot;图片&quot;&gt;&lt;/li&gt;
+&lt;li&gt;添加配置文件的映射模型&lt;br&gt;  &lt;img src=&quot;https://dn-coding-net-production-pp.qbox.me/ea4ac89a-7e83-4a90-a514-ab3f4c453af1.png&quot; alt=&quot;图片&quot;&gt; &lt;/li&gt;
+&lt;li&gt;在Startup.cs  ConfigureServices方法中注册&lt;br&gt;&lt;img src=&quot;https://dn-coding-net-production-pp.qbox.me/7cac2c8c-c374-4558-b49f-9c963fe69906.png&quot; alt=&quot;图片&quot;&gt; &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;services.AddOptions();
+services.Configure&amp;lt;AppSettings&amp;gt;(Configuration.GetSection(&amp;quot;AppSettings&amp;quot;));
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="netcore" scheme="https://yimogit.github.io/tags/netcore/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>winform复制文件到指定目录</title>
+    <link href="https://yimogit.github.io/2017/07/05/winform%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95/"/>
+    <id>https://yimogit.github.io/2017/07/05/winform复制文件到指定目录/</id>
+    <published>2017-07-05T03:47:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;执行步骤&quot;&gt;&lt;a href=&quot;#执行步骤&quot; class=&quot;headerlink&quot; title=&quot;执行步骤&quot;&gt;&lt;/a&gt;执行步骤&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;弹出选择对话框：&lt;code&gt;var openFileDialog = new OpenFileDialog();&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;设置选择内容,如所有图片:&lt;code&gt;openFileDialog.Filter=&amp;quot;图像文件 (*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png)|*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png&amp;quot;;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;获取选择的路径集合：&lt;code&gt;openFileDialog.FileNames&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;复制文件:&lt;code&gt;File.Copy(sourcePath,targetPath);//目录重命名见下面代码&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="dotnet" scheme="https://yimogit.github.io/categories/dotnet/"/>
+    
+    
+      <category term="工具" scheme="https://yimogit.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>winform制作小工具的技巧</title>
+    <link href="https://yimogit.github.io/2017/07/05/winform%E5%88%B6%E4%BD%9C%E5%B0%8F%E5%B7%A5%E5%85%B7%E7%9A%84%E6%8A%80%E5%B7%A7/"/>
+    <id>https://yimogit.github.io/2017/07/05/winform制作小工具的技巧/</id>
+    <published>2017-07-05T01:15:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用winfrom制作一些工具的时候，一些基本设置都是去属性里面找来找去，一段时间就忘了，记录记录以备不时之需。&lt;/p&gt;
+&lt;h2 id=&quot;一、窗体绘制的常用设置&quot;&gt;&lt;a href=&quot;#一、窗体绘制的常用设置&quot; class=&quot;headerlink&quot; title=&quot;一、窗体绘制的常用设置&quot;&gt;&lt;/a&gt;一、窗体绘制的常用设置&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;窗体的设置应当在窗体构造函数中InitializeComponent()方法前执行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;public frmMain()
+{
+    this.StartPosition = FormStartPosition.CenterScreen;//窗体居中显示  
+    this.MaximizeBox = false;//不显示最大化按钮 
+    this.FormBorderStyle = FormBorderStyle.FixedSingle;//禁止放大缩小 
+    InitializeComponent();
+}
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="dotnet" scheme="https://yimogit.github.io/categories/dotnet/"/>
+    
+    
+      <category term="工具" scheme="https://yimogit.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>meImgs-个人私有图床搭建</title>
+    <link href="https://yimogit.github.io/2017/07/04/meImgs-%E4%B8%AA%E4%BA%BA%E7%A7%81%E6%9C%89%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"/>
+    <id>https://yimogit.github.io/2017/07/04/meImgs-个人私有图床搭建/</id>
+    <published>2017-07-04T08:35:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;在Coding中新建一个仓库&quot;&gt;&lt;a href=&quot;#在Coding中新建一个仓库&quot; class=&quot;headerlink&quot; title=&quot;在Coding中新建一个仓库&quot;&gt;&lt;/a&gt;在Coding中新建一个仓库&lt;/h1&gt;&lt;p&gt; &lt;img src=&quot;https://dn-
+      
+    
+    </summary>
+    
+      <category term="dotnet" scheme="https://yimogit.github.io/categories/dotnet/"/>
+    
+    
+      <category term="工具" scheme="https://yimogit.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大话数据结构-阅读笔记</title>
+    <link href="https://yimogit.github.io/2017/07/02/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
+    <id>https://yimogit.github.io/2017/07/02/大话数据结构笔记/</id>
+    <published>2017-07-02T23:13:49.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;数据结构果然还是应该知道一点为好&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;2017-06-30日-第一章介绍&quot;&gt;&lt;a href=&quot;#2017-06-30日-第一章介绍&quot; class=&quot;headerlink&quot; title=&quot;2017-06-30日 第一章介绍&quot;&gt;&lt;/a&gt;2017-06-30日 第一章介绍&lt;/h2&gt;&lt;h3 id=&quot;数据结构&quot;&gt;&lt;a href=&quot;#数据结构&quot; class=&quot;headerlink&quot; title=&quot;数据结构&quot;&gt;&lt;/a&gt;数据结构&lt;/h3&gt;&lt;p&gt;结构是指各个组成部分相互搭配和排列的方式&lt;br&gt;数据结构就是相互之间存在一种或多种特定关系的数据元素的集合&lt;/p&gt;
+&lt;h3 id=&quot;逻辑结构&quot;&gt;&lt;a href=&quot;#逻辑结构&quot; class=&quot;headerlink&quot; title=&quot;逻辑结构&quot;&gt;&lt;/a&gt;逻辑结构&lt;/h3&gt;&lt;p&gt;对象中数据元素之间的相互关系&lt;br&gt;包含 : 集合结构，线性结构，树形结构，图形结构&lt;/p&gt;
+&lt;h3 id=&quot;物理结构&quot;&gt;&lt;a href=&quot;#物理结构&quot; class=&quot;headerlink&quot; title=&quot;物理结构&quot;&gt;&lt;/a&gt;物理结构&lt;/h3&gt;&lt;p&gt;指数据的逻辑结构在计算机中的存储形式&lt;br&gt;包含 : 顺序存储结构，链接存储结构&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="读书笔记" scheme="https://yimogit.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>db数据导出Excel工具</title>
+    <link href="https://yimogit.github.io/2017/07/02/db%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%87%BAExcel%E5%B7%A5%E5%85%B7/"/>
+    <id>https://yimogit.github.io/2017/07/02/db数据导出Excel工具/</id>
+    <published>2017-07-02T23:13:49.000Z</published>
+    <updated>2018-07-17T07:19:45.859Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;一个根据数据库链接字符串，sql语句 即可将结果集导出到Excel的工具 分享，支持sqlserver,mysql。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;前因&quot;&gt;&lt;a href=&quot;#前因&quot; class=&quot;headerlink&quot; title=&quot;前因&quot;&gt;&lt;/a&gt;前因&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;一个月前朋友找到我，让我帮忙做一个根据sql导出查询结果到Excel的工具（之前帮他一个导入Excel然后按其规则统计数据的工具）。&lt;br&gt;然后扔了我一个SQL语句，瞬间懵比。卧槽。这么多列，我特么得定义这么属性，改了还得重新改程序（一直用EF）。&lt;br&gt;于是思考如何忽略列名，进而如何做到通用，做到于我有益，而不是简单的帮个忙。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;如何完成这个需求&quot;&gt;&lt;a href=&quot;#如何完成这个需求&quot; class=&quot;headerlink&quot; title=&quot;如何完成这个需求&quot;&gt;&lt;/a&gt;如何完成这个需求&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Q:程序中根据SQL查询出数据而不需要关注有哪些列？&lt;br&gt;A:将查询结果保存到DataTable中然后遍历&lt;br&gt;Q:如何将DataTable转换Excel？&lt;br&gt;A:一搜，一试，可用之&lt;br&gt;Q:如何保存到本地？&lt;br&gt;A:待我改改写日志的方法&lt;br&gt;
+    
+    </summary>
+    
+      <category term="dotnet" scheme="https://yimogit.github.io/categories/dotnet/"/>
+    
+    
+      <category term="工具" scheme="https://yimogit.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用批处理脚本愉快的清理缓存</title>
+    <link href="https://yimogit.github.io/2017/06/03/%E4%BD%BF%E7%94%A8%E6%89%B9%E5%A4%84%E7%90%86%E8%84%9A%E6%9C%AC%E6%84%89%E5%BF%AB%E7%9A%84%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98/"/>
+    <id>https://yimogit.github.io/2017/06/03/使用批处理脚本愉快的清理缓存/</id>
+    <published>2017-06-03T18:00:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;站点缓存着实头痛，那么-重启吧&quot;&gt;&lt;a href=&quot;#站点缓存着实头痛，那么-重启吧&quot; class=&quot;headerlink&quot; title=&quot;站点缓存着实头痛，那么~重启吧&quot;&gt;&lt;/a&gt;站点缓存着实头痛，那么~重启吧&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;网站做了站点缓存，测试的时候修改数据后需要重启站点来清楚缓存&lt;br&gt;如何无需登陆服务器又不用改代码就可以清理换网站上的缓存呢？&lt;br&gt;用重启iis怎么样~&lt;br&gt;能重启IIS，自然也能干其他的&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="脚本" scheme="https://yimogit.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何生成ssh公钥</title>
+    <link href="https://yimogit.github.io/2017/05/28/%E5%A6%82%E4%BD%95%E7%94%9F%E6%88%90ssh%E5%85%AC%E9%92%A5/"/>
+    <id>https://yimogit.github.io/2017/05/28/如何生成ssh公钥/</id>
+    <published>2017-05-28T04:30:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;windows下生成ssh-key&quot;&gt;&lt;a href=&quot;#windows下生成ssh-key&quot; class=&quot;headerlink&quot; title=&quot;windows下生成ssh_key&quot;&gt;&lt;/a&gt;windows下生成ssh_key&lt;/h2&gt;&lt;p&gt;会生成id_rsa以及 id_rsa.pub。输入命令三次回车即可sshkey生成到id_rsa.pub中，将文件中的公钥复制到coding或者GitHub即可&lt;br&gt;生成命令：&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;&lt;/code&gt;&lt;br&gt;生成目录：&lt;code&gt;C:\Users\用户名\.ssh&lt;/code&gt; （Linux下/your_home_path/.ssh/id_rsa）&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="git" scheme="https://yimogit.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git常用命令记录</title>
+    <link href="https://yimogit.github.io/2017/05/21/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BD%95/"/>
+    <id>https://yimogit.github.io/2017/05/21/git常用命令记录/</id>
+    <published>2017-05-21T15:54:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;配置本地仓库&quot;&gt;&lt;a href=&quot;#配置本地仓库&quot; class=&quot;headerlink&quot; title=&quot;配置本地仓库&quot;&gt;&lt;/a&gt;配置本地仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;设置用户名：&lt;code&gt;git config --global user.name 易墨&lt;/code&gt;     &lt;/li&gt;
+&lt;li&gt;设置邮箱：&lt;code&gt;git config --global user.email yimo@yimo.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;删除配置： &lt;code&gt;git config --global --unset key&lt;/code&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/sky1203850702/article/details/40985505&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;更多&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;查看配置详情&quot;&gt;&lt;a href=&quot;#查看配置详情&quot; class=&quot;headerlink&quot; title=&quot;查看配置详情&quot;&gt;&lt;/a&gt;查看配置详情&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git config -l&lt;/code&gt;  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;初始仓库&quot;&gt;&lt;a href=&quot;#初始仓库&quot; class=&quot;headerlink&quot; title=&quot;初始仓库&quot;&gt;&lt;/a&gt;初始仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git init&lt;/code&gt;   &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git init --bare&lt;/code&gt; –初始化一个共享仓库 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;查看当前仓库的状态&quot;&gt;&lt;a href=&quot;#查看当前仓库的状态&quot; class=&quot;headerlink&quot; title=&quot;查看当前仓库的状态&quot;&gt;&lt;/a&gt;查看当前仓库的状态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="git" scheme="https://yimogit.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用bat脚本部署hexo到coding和github</title>
+    <link href="https://yimogit.github.io/2017/05/20/%E4%BD%BF%E7%94%A8bat%E8%84%9A%E6%9C%AC%E9%83%A8%E7%BD%B2hexo%E5%88%B0coding%E5%92%8Cgithub/"/>
+    <id>https://yimogit.github.io/2017/05/20/使用bat脚本部署hexo到coding和github/</id>
+    <published>2017-05-20T17:46:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;因项目的不同适当的改造吧，本文以hexo为例。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;拉取coding-net的代码和github的代码到本地&quot;&gt;&lt;a href=&quot;#拉取coding-net的代码和github的代码到本地&quot; class=&quot;headerlink&quot; title=&quot;拉取coding.net的代码和github的代码到本地&quot;&gt;&lt;/a&gt;拉取coding.net的代码和github的代码到本地&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;确保代码能够正常的运行，commit,push&lt;/li&gt;
+&lt;li&gt;在项目的目录外新建一个push.bat文件 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;快速预览&lt;br&gt;&lt;img src=&quot;http://images2015.cnblogs.com/blog/662652/201705/662652-20170521012938088-2141091264.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;如何一步到位提交到仓库&quot;&gt;&lt;a href=&quot;#如何一步到位提交到仓库&quot; class=&quot;headerlink&quot; title=&quot;如何一步到位提交到仓库&quot;&gt;&lt;/a&gt;如何一步到位提交到仓库&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;脚本中的变量说明&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;artsPath 新增文章的目录  &lt;/li&gt;
+&lt;li&gt;codingPath coding的目录    &lt;/li&gt;
+&lt;li&gt;githubPath github的目录    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;复制文章然后自动执行命令进行部署&quot;&gt;&lt;a href=&quot;#复制文章然后自动执行命令进行部署&quot; class=&quot;headerlink&quot; title=&quot;复制文章然后自动执行命令进行部署&quot;&gt;&lt;/a&gt;复制文章然后自动执行命令进行部署&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;修改脚本中对应的路径后执行&lt;code&gt;push&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;xcopy&lt;/span&gt; F:\CodingRepos\ymhexo\arts F:\CodingRepos\ymhexo\yimocoding\source\_posts /Y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; F:\CodingRepos\ymhexo\yimocoding&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git pull&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; hexo clean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; hexo d -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git add *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git commit -m AddArticle&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="hexo" scheme="https://yimogit.github.io/tags/hexo/"/>
+    
+      <category term="脚本" scheme="https://yimogit.github.io/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows下使用bat脚本部署hexo到coding和github</title>
+    <link href="https://yimogit.github.io/2017/05/20/windows%E4%B8%8B%E4%BD%BF%E7%94%A8bat%E8%84%9A%E6%9C%AC%E9%83%A8%E7%BD%B2hexo%E5%88%B0coding%E5%92%8Cgithub/"/>
+    <id>https://yimogit.github.io/2017/05/20/windows下使用bat脚本部署hexo到coding和github/</id>
+    <published>2017-05-20T16:00:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;拉取coding-net的代码和github的代码到本地&quot;&gt;&lt;a href=&quot;#拉取coding-net的代码和github的代码到本地&quot; class=&quot;headerlink&quot; title=&quot;拉取coding.net的代码和github的代码到本地&quot;&gt;&lt;/a&gt;拉取coding.net的代码和github的代码到本地&lt;/h2&gt;&lt;p&gt;确保代码能够正常的运行，commit,push&lt;br&gt;新建一个push.bat文件&lt;br&gt;然后copy下面的代码再改改路径，将文章放到arts目录后运行push即可&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;artsPath 新增文章的目录  &lt;/li&gt;
+&lt;li&gt;codingPath coding的目录    &lt;/li&gt;
+&lt;li&gt;githubPath github的目录     &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;如何一步到位提交到仓库&quot;&gt;&lt;a href=&quot;#如何一步到位提交到仓库&quot; class=&quot;headerlink&quot; title=&quot;如何一步到位提交到仓库&quot;&gt;&lt;/a&gt;如何一步到位提交到仓库&lt;/h2&gt;&lt;h3 id=&quot;复制文章然后自动执行命令进行部署&quot;&gt;&lt;a href=&quot;#复制文章然后自动执行命令进行部署&quot; class=&quot;headerlink&quot; title=&quot;复制文章然后自动执行命令进行部署&quot;&gt;&lt;/a&gt;复制文章然后自动执行命令进行部署&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;修改脚本中对应的路径后执行&lt;code&gt;push&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight bat&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;xcopy&lt;/span&gt; F:\CodingRepos\ymhexo\arts F:\CodingRepos\ymhexo\yimocoding\source\_posts /Y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; F:\CodingRepos\ymhexo\yimocoding&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git pull&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; hexo clean&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; hexo d -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git add *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git commit -m AddArticle&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;call&lt;/span&gt; git push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="hexo" scheme="https://yimogit.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初次尝试Linux并记录一二</title>
+    <link href="https://yimogit.github.io/2017/05/19/%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95Linux%E5%B9%B6%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%8C/"/>
+    <id>https://yimogit.github.io/2017/05/19/初次尝试Linux并记录一二/</id>
+    <published>2017-05-19T09:54:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;假如我有一个Linux系统&quot;&gt;&lt;a href=&quot;#假如我有一个Linux系统&quot; class=&quot;headerlink&quot; title=&quot;假如我有一个Linux系统&quot;&gt;&lt;/a&gt;假如我有一个Linux系统&lt;/h2&gt;&lt;p&gt;安装过程：加载中…&lt;br&gt;版本：Ubuntu Server 16.04.1 LTS 64位&lt;br&gt;得到一个IP：&lt;em&gt;.&lt;/em&gt;.&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;下载工具&quot;&gt;&lt;a href=&quot;#下载工具&quot; class=&quot;headerlink&quot; title=&quot;下载工具&quot;&gt;&lt;/a&gt;下载工具&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://baike.baidu.com/item/winscp&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WinSCP&lt;/a&gt;: WinSCP是一个Windows环境下使用SSH的开源图形化SFTP客户端&lt;br&gt;&lt;a href=&quot;http://baike.baidu.com/item/putty&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PuTTY&lt;/a&gt;: PuTTY是一个Telnet、SSH、rlogin、纯TCP以及串行接口连接软件&lt;br&gt;&lt;a href=&quot;http://pan.baidu.com/s/1qXMTI0W&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;网盘下载&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="linux" scheme="https://yimogit.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js实用方法记录-指不定哪天就会用到的js方法</title>
+    <link href="https://yimogit.github.io/2017/05/19/js%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95-%E6%8C%87%E4%B8%8D%E5%AE%9A%E5%93%AA%E5%A4%A9%E5%B0%B1%E4%BC%9A%E7%94%A8%E5%88%B0%E7%9A%84js%E6%96%B9%E6%B3%95/"/>
+    <id>https://yimogit.github.io/2017/05/19/js实用方法记录-指不定哪天就会用到的js方法/</id>
+    <published>2017-05-19T06:18:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;js实用方法记录-指不定哪天就会用到的js方法&quot;&gt;&lt;a href=&quot;#js实用方法记录-指不定哪天就会用到的js方法&quot; class=&quot;headerlink&quot; title=&quot;js实用方法记录-指不定哪天就会用到的js方法&quot;&gt;&lt;/a&gt;js实用方法记录-指不定哪天就会用到的js方法&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;常用或者不常用都有&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;判断是否在微信浏览器中&quot;&gt;&lt;a href=&quot;#判断是否在微信浏览器中&quot; class=&quot;headerlink&quot; title=&quot;判断是否在微信浏览器中&quot;&gt;&lt;/a&gt;判断是否在微信浏览器中&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;测试代码：&lt;code&gt;isWeiXin()==false&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * 是否在微信中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;isWeixin&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; ua = navigator.userAgent.toLowerCase();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (ua.match(&lt;span class=&quot;regexp&quot;&gt;/MicroMessenger/i&lt;/span&gt;) == &lt;span class=&quot;string&quot;&gt;&quot;micromessenger&quot;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="web开发" scheme="https://yimogit.github.io/categories/web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="js" scheme="https://yimogit.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js实用方法记录-简单cookie操作</title>
+    <link href="https://yimogit.github.io/2017/05/19/js%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95-%E7%AE%80%E5%8D%95cookie%E6%93%8D%E4%BD%9C/"/>
+    <id>https://yimogit.github.io/2017/05/19/js实用方法记录-简单cookie操作/</id>
+    <published>2017-05-19T05:51:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;js实用方法记录-简单cookie操作&quot;&gt;&lt;a href=&quot;#js实用方法记录-简单cookie操作&quot; class=&quot;headerlink&quot; title=&quot;js实用方法记录-简单cookie操作&quot;&gt;&lt;/a&gt;js实用方法记录-简单cookie操作&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;设置cookie：setCookie(名称,值,保存时间,保存域);&lt;br&gt;获取cookie：setCookie(名称);&lt;br&gt;移除cookie：setCookie(名称,值,-1,保存域);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;设置cookie&quot;&gt;&lt;a href=&quot;#设置cookie&quot; class=&quot;headerlink&quot; title=&quot;设置cookie&quot;&gt;&lt;/a&gt;设置cookie&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;测试代码：&lt;code&gt;setCookie(&amp;#39;test&amp;#39;,&amp;#39;hello&amp;#39;)&lt;/code&gt; //保存session级的cookie到根域&lt;br&gt;测试代码：&lt;code&gt;setCookie(&amp;#39;test&amp;#39;,&amp;#39;hello&amp;#39;,30,false)&lt;/code&gt; //保存30天且保存到当前全域名&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * 设置cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * @param &amp;#123;string&amp;#125; name cookie名称&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * @param &amp;#123;string&amp;#125; value cookie值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * @param &amp;#123;number&amp;#125;[expiredays=null] 过期时间 默认session级别 &amp;lt;=0移除cookie&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * @param &amp;#123;bool&amp;#125;[saveRoot=true] 保存的域 默认根域&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;setCookie&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;name, value, expiredays=null,saveRoot=false&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; exdate = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    exdate.setDate(exdate.getDate() + expiredays)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cookie = name + &lt;span class=&quot;string&quot;&gt;&quot;=&quot;&lt;/span&gt; + value + &lt;span class=&quot;string&quot;&gt;&#39;;path=/&#39;&lt;/span&gt; + ((expiredays == &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;) ? &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;;expires=&quot;&lt;/span&gt; + exdate.toGMTString());&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(saveRoot)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//适用于一级，二级，本地域名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; domain =((location.host.match(&lt;span class=&quot;regexp&quot;&gt;/\d&amp;#123;1,3&amp;#125;\.\d&amp;#123;1,3&amp;#125;\.\d&amp;#123;1,3&amp;#125;\.\d&amp;#123;1,3&amp;#125;/g&lt;/span&gt;) || location.hostname==&lt;span class=&quot;string&quot;&gt;&#39;localhost&#39;&lt;/span&gt;)? location.hostname:(&lt;span class=&quot;string&quot;&gt;&#39;.&#39;&lt;/span&gt; + (location.host.split(&lt;span class=&quot;string&quot;&gt;&#39;.&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]!=&lt;span class=&quot;literal&quot;&gt;undefined&lt;/span&gt;?(location.host.split(&lt;span class=&quot;string&quot;&gt;&#39;.&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]+&lt;span class=&quot;string&quot;&gt;&#39;.&#39;&lt;/span&gt;+location.host.split(&lt;span class=&quot;string&quot;&gt;&#39;.&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;]):location.host)));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;      cookie+=(&lt;span class=&quot;string&quot;&gt;&#39;;domain=&#39;&lt;/span&gt;+domain);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.cookie = cookie;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="web开发" scheme="https://yimogit.github.io/categories/web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="js" scheme="https://yimogit.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js实用方法记录-动态加载css、js</title>
+    <link href="https://yimogit.github.io/2017/05/19/js%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95-%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BDcssjs/"/>
+    <id>https://yimogit.github.io/2017/05/19/js实用方法记录-动态加载cssjs/</id>
+    <published>2017-05-19T03:26:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;js实用方法记录-动态加载css、js&quot;&gt;&lt;a href=&quot;#js实用方法记录-动态加载css、js&quot; class=&quot;headerlink&quot; title=&quot;js实用方法记录-动态加载css、js&quot;&gt;&lt;/a&gt;js实用方法记录-动态加载css、js&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;附送一个加载iframe,h5打开app代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;1-动态加载js文件到head标签并执行回调&quot;&gt;&lt;a href=&quot;#1-动态加载js文件到head标签并执行回调&quot; class=&quot;headerlink&quot; title=&quot;1. 动态加载js文件到head标签并执行回调&quot;&gt;&lt;/a&gt;1. 动态加载js文件到head标签并执行回调&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;方法调用：&lt;code&gt;dynamicLoadJs(&amp;#39;http://www.yimo.link/static/js/main.min.js&amp;#39;,function(){alert(&amp;#39;加载成功&amp;#39;)});&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * 动态加载JS&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * @param &amp;#123;string&amp;#125; url 脚本地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * @param &amp;#123;function&amp;#125; callback  回调函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;dynamicLoadJs&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;url, callback&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; head = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementsByTagName(&lt;span class=&quot;string&quot;&gt;&#39;head&#39;&lt;/span&gt;)[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; script = &lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.createElement(&lt;span class=&quot;string&quot;&gt;&#39;script&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    script.type = &lt;span class=&quot;string&quot;&gt;&#39;text/javascript&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    script.src = url;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt;(callback)==&lt;span class=&quot;string&quot;&gt;&#39;function&#39;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        script.onload = script.onreadystatechange = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.readyState || &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.readyState === &lt;span class=&quot;string&quot;&gt;&quot;loaded&quot;&lt;/span&gt; || &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.readyState === &lt;span class=&quot;string&quot;&gt;&quot;complete&quot;&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                callback();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                script.onload = script.onreadystatechange = &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    head.appendChild(script);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="web开发" scheme="https://yimogit.github.io/categories/web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="js" scheme="https://yimogit.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用node自动生成html并调用cmd命令提交代码到仓库</title>
+    <link href="https://yimogit.github.io/2017/05/06/%E4%BD%BF%E7%94%A8node%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90html%E5%B9%B6%E8%B0%83%E7%94%A8cmd%E5%91%BD%E4%BB%A4%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%88%B0%E4%BB%93%E5%BA%93/"/>
+    <id>https://yimogit.github.io/2017/05/06/使用node自动生成html并调用cmd命令提交代码到仓库/</id>
+    <published>2017-05-06T13:41:00.000Z</published>
+    <updated>2018-07-17T07:19:45.863Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;生成html提交到git仓库&quot;&gt;&lt;a href=&quot;#生成html提交到git仓库&quot; class=&quot;headerlink&quot; title=&quot;生成html提交到git仓库&quot;&gt;&lt;/a&gt;生成html提交到git仓库&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;基于目前的express博客,写了一点代码,通过request模块来请求站点，将html保存到coding-pages目录，复制静态文件夹到coding-pages,最后使用node的child_process模块执行cmd命令提交到仓库~~&lt;br&gt;
+    
+    </summary>
+    
+      <category term="全栈" scheme="https://yimogit.github.io/categories/%E5%85%A8%E6%A0%88/"/>
+    
+    
+      <category term="nodejs" scheme="https://yimogit.github.io/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>express使用记录</title>
+    <link href="https://yimogit.github.io/2017/05/06/express%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/"/>
+    <id>https://yimogit.github.io/2017/05/06/express使用记录/</id>
+    <published>2017-05-06T13:37:00.000Z</published>
+    <updated>2018-07-17T07:19:45.859Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;随便记录下系列-node-gt-express&quot;&gt;&lt;a href=&quot;#随便记录下系列-node-gt-express&quot; class=&quot;headerlink&quot; title=&quot;随便记录下系列 - node-&amp;gt;express&quot;&gt;&lt;/a&gt;随便记录下系列 - node-&amp;gt;express&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;文章用啥写？→&lt;em&gt;→ VsCode。&lt;br&gt;代码用啥写？→&lt;/em&gt;→ VsCode。&lt;br&gt;编辑器下载：&lt;a href=&quot;http://pan.baidu.com/s/1qYpmzpE&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;VsCode&lt;/a&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;一、windows下安装node-js环境：-下载地址&quot;&gt;&lt;a href=&quot;#一、windows下安装node-js环境：-下载地址&quot; class=&quot;headerlink&quot; title=&quot;一、windows下安装node.js环境： 下载地址&quot;&gt;&lt;/a&gt;一、windows下安装node.js环境： &lt;a href=&quot;http://nodejs.cn/download/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;下载地址&lt;/a&gt;&lt;/h2&gt;&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;相比以前搭过的服务端语言的环境,node环境的安装简直是业界良心&lt;br&gt;即使第一次折腾了2天，第二次折腾了2小时，第三次折腾了2分钟&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;下载其他版本只需要替换下载链接 &lt;code&gt;https://nodejs.org/dist/v6.2.0/node-v6.2.0-x64.msi&lt;/code&gt; 的2个版本号6.2.0为你需要的版本即可   &lt;/li&gt;
+&lt;li&gt;尽量别把node安装在C盘(使用D:\Program Files\nodejs) &lt;/li&gt;
+&lt;li&gt;基础配置项(根据需要设置环境变量)&lt;br&gt; 设置全局安装包路径： &lt;code&gt;npm config set prefix &amp;quot;D:\Program Files\nodejs\node_global&lt;/code&gt;&lt;br&gt; 设置缓存目录： &lt;code&gt;npm config set cache &amp;quot;D:\Program Files\nodejs\node_cache&lt;/code&gt;&lt;br&gt; 设置淘宝镜像源： &lt;code&gt;npm install -g cnpm --registry=https://registry.npm.taobao.org&lt;/code&gt;    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PS： vue2.0用node-v4.5吧~，npm升级命令&lt;code&gt;npm update&lt;/code&gt; 升级npm版本,若是不行则切换为32位版本的试试,再不行换个系统试试T-_-T&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="web开发" scheme="https://yimogit.github.io/categories/web%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="nodejs" scheme="https://yimogit.github.io/tags/nodejs/"/>
+    
+      <category term="express" scheme="https://yimogit.github.io/tags/express/"/>
+    
+  </entry>
+  
+</feed>

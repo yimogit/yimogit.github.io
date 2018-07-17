@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>winform复制文件到指定目录 | 易墨&#39;s_Blog</title>
+  <meta name="description" content="一个叫做易墨的博客" />
+  <meta name="keywords" content="yimo,易墨" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="alternate" href="/atom.xml" title="易墨's_Blog">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="执行步骤  弹出选择对话框：var openFileDialog = new OpenFileDialog(); 设置选择内容,如所有图片:openFileDialog.Filter=&amp;quot;图像文件 (*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png)|*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png&amp;quot;; 获取选择的路径集合：open">
+<meta name="keywords" content="工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="winform复制文件到指定目录">
+<meta property="og:url" content="https://yimogit.github.io/2017/07/05/winform复制文件到指定目录/index.html">
+<meta property="og:site_name" content="易墨&#39;s_Blog">
+<meta property="og:description" content="执行步骤  弹出选择对话框：var openFileDialog = new OpenFileDialog(); 设置选择内容,如所有图片:openFileDialog.Filter=&amp;quot;图像文件 (*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png)|*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png&amp;quot;; 获取选择的路径集合：open">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-17T07:19:45.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="winform复制文件到指定目录">
+<meta name="twitter:description" content="执行步骤  弹出选择对话框：var openFileDialog = new OpenFileDialog(); 设置选择内容,如所有图片:openFileDialog.Filter=&amp;quot;图像文件 (*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png)|*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png&amp;quot;; 获取选择的路径集合：open">
+    
+  <link rel="stylesheet" href="//yimogit.github.io/assets/css/waves.min.css">
+  <link rel="stylesheet" href="//yimogit.github.io/assets/css/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+</head>
+
+<body>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+
+  <script>setLoadingBarProgress(20)</script> 
+  <header class="l_header">
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href='/' >
+				易墨's_Blog
+			</a>
+			<div class='menu'>
+				<ul class='h-list'>
+					
+						<li>
+							<a class='flat-box nav-home' href='/'  target="_top" >
+								首页
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-archives' href='/archives'  target="_top" >
+								归档
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-gossip' href='/gossip'  target="_top" >
+								闲言碎语
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-meTools' href='https://tools.yimo.link/'  target="_blank" >
+								个人工具
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-meApp' href='http://app.yimo.link'  target="_blank" >
+								私人定制
+							</a>
+						</li>
+					
+						<li>
+							<a class='flat-box nav-about' href='/about'  target="_top" >
+								关于
+							</a>
+						</li>
+					
+				</ul>
+				<div class='underline'></div>
+			</div>
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search" />
+						<span class="icon icon-search"></span>
+					</form>
+				</div>
+			
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a href='javascript:void(0)'><span class="icon icon-search flat-box"></span></a></li>
+				
+				<li class='s-menu'><a href='javascript:void(0)'><span class="icon icon-menu flat-box"></span></a></li>
+			</ul>
+		</div>
+		
+		<div class='nav-sub container container--flex'>
+			<a class="logo" class="flat-box" href='javascript:void(0)'>
+				Word of Forks
+			</a>
+
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a href='javascript:void(0)'><span class="icon icon-chat_bubble_outline flat-box"></span></a></li>
+				<li class='s-top'><a href='javascript:void(0)'><span class="icon icon-arrow_upward flat-box"></span></a></li>
+				<li class='s-toc'><a href='javascript:void(0)'><span class="icon icon-format_list_numbered flat-box"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+<aside class="menu-phone">
+	<nav>
+		
+
+			<a href="/" class="nav-home nav">
+				首页
+			</a>
+		
+
+			<a href="/archives" class="nav-archives nav">
+				归档
+			</a>
+		
+
+			<a href="/gossip" class="nav-gossip nav">
+				闲言碎语
+			</a>
+		
+
+			<a href="https://tools.yimo.link/" class="nav-meTools nav">
+				个人工具
+			</a>
+		
+
+			<a href="http://app.yimo.link" class="nav-meApp nav">
+				私人定制
+			</a>
+		
+
+			<a href="/about" class="nav-about nav">
+				关于
+			</a>
+		
+	</nav>
+</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+  <div class="l_body">
+    <div class='container clearfix'>
+      <div class='l_main'>
+        <article id="post-winform复制文件到指定目录"
+  class="post white-box article-type-post"
+  itemscope itemprop="blogPost">
+	<section class='meta'>
+	<h2 class="title">
+  	<a href="/2017/07/05/winform复制文件到指定目录/">
+    	winform复制文件到指定目录 
+    </a>
+  </h2>	
+	
+	<time>
+	  2017-07-05 11:47:00
+	</time>
+	
+	
+    
+    <div class='cats'>
+        <a href="/categories/dotnet/">dotnet</a>
+    </div>
+
+	</section>
+	
+		<section class="toc-wrapper"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#执行步骤"><span class="toc-number">1.</span> <span class="toc-text">执行步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-打开图片选择对话框"><span class="toc-number">2.</span> <span class="toc-text">1. 打开图片选择对话框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-复制文件到指定目录"><span class="toc-number">3.</span> <span class="toc-text">2.复制文件到指定目录</span></a></li></ol></section>
+	
+	<section class="article typo">
+  	<div class="article-entry" itemprop="articleBody">
+    	<h2 id="执行步骤"><a href="#执行步骤" class="headerlink" title="执行步骤"></a>执行步骤</h2><blockquote>
+<ol>
+<li>弹出选择对话框：<code>var openFileDialog = new OpenFileDialog();</code></li>
+<li>设置选择内容,如所有图片:<code>openFileDialog.Filter=&quot;图像文件 (*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png)|*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png&quot;;</code></li>
+<li>获取选择的路径集合：<code>openFileDialog.FileNames</code></li>
+<li>复制文件:<code>File.Copy(sourcePath,targetPath);//目录重命名见下面代码</code></li>
+</ol>
+</blockquote>
+<a id="more"></a>
+<h2 id="1-打开图片选择对话框"><a href="#1-打开图片选择对话框" class="headerlink" title="1. 打开图片选择对话框"></a>1. 打开图片选择对话框</h2><blockquote>
+<p>默认为多选，返回选择的文件路径集合，可使用<code>FirstOrDefault()</code>方法判断是否选择了文件</p>
+</blockquote>
+<pre><code>//打开文件对话框并获取选择的文件
+private List&lt;string&gt; OpenImagesDialog(bool isMulti = true)
+{
+    var openFileDialog = new OpenFileDialog();
+    const string imgExts = &quot;图像文件 (*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png)|*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png&quot;;
+    openFileDialog.Filter = imgExts;//可选择的文件格式 (|之前为显示，之后为控制后缀显示)
+    openFileDialog.Multiselect = isMulti;//多选设置
+    openFileDialog.RestoreDirectory = true;
+    openFileDialog.FilterIndex = 1;
+    var result = new List&lt;string&gt;();
+    if (openFileDialog.ShowDialog() == DialogResult.OK)
+    {
+        result.AddRange(openFileDialog.FileNames);
+    }
+    return result;
+}
+</code></pre><h2 id="2-复制文件到指定目录"><a href="#2-复制文件到指定目录" class="headerlink" title="2.复制文件到指定目录"></a>2.复制文件到指定目录</h2><blockquote>
+<p>将传递的文件复制到指定目录并以Guid重命名，目录不存在则自动创建<br>使用元组返回对应路径键值对(Item1)及失败路径集合(Item2)</p>
+</blockquote>
+<pre><code>/// &lt;summary&gt;
+/// 复制文件到指定目录并重命名
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;sourcePaths&quot;&gt;要复制的文件路径集合&lt;/param&gt;
+/// &lt;param name=&quot;targetDir&quot;&gt;目标目录&lt;/param&gt;
+/// &lt;returns&gt;Item1:对应路径，Item2:失败文件路径&lt;/returns&gt;
+public static Tuple&lt;Dictionary&lt;string, string&gt;, List&lt;string&gt;&gt; CopyFileToDir(List&lt;string&gt; sourcePaths, string targetDir)
+{
+    if (!Directory.Exists(targetDir))
+    {
+        Directory.CreateDirectory(targetDir);
+    }
+    var errorFiles = new List&lt;string&gt;();
+    var saveDirs = new Dictionary&lt;string, string&gt;();
+    sourcePaths.ForEach(item =&gt;
+    {
+        //路径不存在或者路径已存在则失败
+        if (!File.Exists(item) || saveDirs.ContainsKey(item))
+        {
+            errorFiles.Add(item);
+        }
+        else
+        {
+            var saveName = Guid.NewGuid() + Path.GetExtension(item);
+            var savePath = Path.Combine(targetDir, saveName);
+            File.Copy(item, savePath);
+            saveDirs.Add(item, savePath);
+        }
+    });
+    var result = new Tuple&lt;Dictionary&lt;string, string&gt;, List&lt;string&gt;&gt;(saveDirs, errorFiles);
+    return result;
+}
+</code></pre><blockquote>
+<p>调用示例 ( AppendLogMsg 为追加日志方法)</p>
+</blockquote>
+<pre><code>var selectImgs = OpenImagesDialog(true);//打开文件对话框并获取选择的所有文件
+var result = FileHelper.CopyFileToDir(selectImgs, txtSaveDir.Text);
+//result.Item1 [{源文件路径:目标路径}]
+//result.Item2 [失败路径1,失败路径2]
+</code></pre>
+  	</div>
+	  
+	  <div class="article-tags tags">
+      
+        <a href="/tags/工具/">工具</a>
+      
+	  </div>
+    
+	  
+		<div class="art-item-footer">
+				
+					<span class="art-item-left"><i class="icon icon-chevron-thin-left"></i>上一篇：<a href="/2017/07/09/asp.net-core踩坑记录/" rel="prev"  title="asp.net-core踩坑记录">
+						asp.net-core踩坑记录 
+					</a></span>
+				
+				
+					<span class="art-item-right">下一篇：<a href="/2017/07/05/winform制作小工具的技巧/" rel="next"  title="winform制作小工具的技巧">
+						winform制作小工具的技巧
+					</a><i class="icon icon-chevron-thin-right"></i></span>
+				
+		</div>
+		
+	</section>
+	
+		<section id="comments">
+				<div id="SOHUCS" sid="winform复制文件到指定目录"></div>
+		</section>
+		
+    <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js"></script>
+    <script type="text/javascript">
+        window.changyan.api.config({ appid: 'cys5no60I', conf: 'prod_b1c091f2c20426abdaa5aa83a7f0c12c' });
+    </script>
+
+	
+</article>
+<script>
+	window.subData = {
+		title: 'winform复制文件到指定目录',
+		tools: true
+	}
+</script>
+
+
+      </div>
+      <aside class='l_side'>
+        
+  <section class='m_widget about'>
+
+<img class='avatar waves-image' src='/images/avatar.jpg' />
+
+<div class='header'>易墨</div>
+<div class='content'>
+<div class='desc'><b>过去过不的都会过去</b></div>
+</div>
+</section>
+
+  
+<section class='m_widget links'>
+<div class='header'>友情链接</div>
+<div class='content'>
+    <ul class="entry">
+    
+        <li><a class="flat-box" target="_blank" href="https://tools.yimo.link/">
+            <div class='name'>metools</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="http://www.yalunwang.com/">
+            <div class='name'>知乐博客</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="http://szhshp.org/">
+            <div class='name'>szhshp的第三边境研究所</div>
+        </a></li>
+    
+        <li><a class="flat-box" target="_blank" href="https://m.kuaidi100.com/">
+            <div class='name'>快递查询</div>
+        </a></li>
+    
+    </ul>
+</div>
+</section>
+
+
+  
+<section class='m_widget categories'>
+<div class='header'>分了个类</div>
+<div class='content'>
+    
+    <ul class="entry">
+    
+        <li><a class="flat-box" href="/categories/dotnet/"><div class='name'>dotnet</div><div class='badget'>8</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/web开发/"><div class='name'>web开发</div><div class='badget'>6</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/全栈/"><div class='name'>全栈</div><div class='badget'>14</div></a></li>
+    
+        <li><a class="flat-box" href="/categories/程序猿之路/"><div class='name'>程序猿之路</div><div class='badget'>1</div></a></li>
+    
+    </ul>
+    
+</div>
+</section>
+
+
+  
+<div class="m_widget tagcloud">
+    <div class="header">标了个签</div>
+    <div class='content' id="tagscloud">
+        <a href="/tags/css/" style="font-size: 14px; color: #808080">css</a> <a href="/tags/dotnet/" style="font-size: 16px; color: #555">dotnet</a> <a href="/tags/express/" style="font-size: 14px; color: #808080">express</a> <a href="/tags/git/" style="font-size: 16px; color: #555">git</a> <a href="/tags/hexo/" style="font-size: 16px; color: #555">hexo</a> <a href="/tags/js/" style="font-size: 18px; color: #2b2b2b">js</a> <a href="/tags/linux/" style="font-size: 14px; color: #808080">linux</a> <a href="/tags/msmq/" style="font-size: 14px; color: #808080">msmq</a> <a href="/tags/netcore/" style="font-size: 14px; color: #808080">netcore</a> <a href="/tags/nodejs/" style="font-size: 16px; color: #555">nodejs</a> <a href="/tags/nopi/" style="font-size: 14px; color: #808080">nopi</a> <a href="/tags/python/" style="font-size: 14px; color: #808080">python</a> <a href="/tags/react/" style="font-size: 14px; color: #808080">react</a> <a href="/tags/react-native/" style="font-size: 14px; color: #808080">react-native</a> <a href="/tags/weex/" style="font-size: 14px; color: #808080">weex</a> <a href="/tags/工具/" style="font-size: 20px; color: #000">工具</a> <a href="/tags/持续集成/" style="font-size: 14px; color: #808080">持续集成</a> <a href="/tags/环境搭建/" style="font-size: 14px; color: #808080">环境搭建</a> <a href="/tags/脚本/" style="font-size: 16px; color: #555">脚本</a> <a href="/tags/读书笔记/" style="font-size: 14px; color: #808080">读书笔记</a> <a href="/tags/闲言碎语/" style="font-size: 14px; color: #808080">闲言碎语</a>
+    </div>
+</div>
+
+
+
+
+      </aside>
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+  </div>
+  <footer id="footer" class="clearfix">
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/yimogit" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="https://coding.net/u/yimocoding" class="social coding"
+          target="_blank" rel="external">
+          <span class="icon icon-coding"></span>
+        </a>
+      
+        <a href="http://www.cnblogs.com/morang/" class="social rss"
+          target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+        <a href="/atom.xml" class="social rss"
+          target="_blank" rel="external">
+          <span class="icon icon-rss"></span>
+        </a>
+      
+    
+  </div>
+  
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量:<span id="busuanzi_value_site_pv">...</span>
+</span>
+<br/>
+<span id="busuanzi_container_site_uv"> 
+  本站访客数:<span id="busuanzi_value_site_uv">...</span>
+</span>
+  
+  
+    <div>hexo 主题 <a href='https://github.com/stkevintan/hexo-theme-material-flow' class="codename">MaterialFlow</a> designed By <a href="//keyin.me/" target="_blank">Kevin Tan</a>.</div>
+  
+    <div>本站托管于 <a href='https://coding.net/u/yimocoding/p/yimocoding/git' class="codename">coding.net</a> By <a href="//www.yimo.link/" target="_blank">易墨</a></div>
+</footer>
+
+
+  <script>setLoadingBarProgress(80);</script>
+  
+<script src="//yimogit.github.io/assets/js/jquery.min.js"></script>
+<script src="//yimogit.github.io/assets/js/waves.min.js"></script>
+<script src="//yimogit.github.io/assets/js/scrollreveal.min.js"></script>
+<script src="//yimogit.github.io/assets/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "hexo";
+  var ROOT = "/"||"/";
+  if(!ROOT.endsWith('/'))ROOT += '/';
+</script>
+<script src="//yimogit.github.io/assets/js/search.js"></script>
+<script src="//yimogit.github.io/assets/js/app.js"></script>
+<script>
+  InitTongJi("undefined");
+</script>
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
