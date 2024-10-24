@@ -4,11 +4,11 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://yimogit.github.io",
+  hostname: "https://www.yimo.link",
 
   author: {
     name: "易墨",
-    url: "https://yimogit.github.io",
+    url: "https://www.yimo.link",
   },
 
   iconAssets: "fontawesome-with-brands",
@@ -42,11 +42,11 @@ export default hopeTheme({
       Email: "mailto:wsyimo@qq.com",
       Github: "https://github.com/yimogit",
       Cnblogs: {
-        icon: "https://yimogit.github.io/cnblogs.svg",
+        icon: "https://www.yimo.link/cnblogs.svg",
         link: "https://morang.cnblogs.com/",
       },
       Juejin: {
-        icon: "https://yimogit.github.io/juejin.svg",
+        icon: "https://www.yimo.link/juejin.svg",
         link: "https://juejin.cn/user/254742426303544/posts",
       },
     },

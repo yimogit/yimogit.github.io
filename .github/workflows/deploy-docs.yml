@@ -50,12 +50,13 @@ jobs:
           # 部署文档
           branch: gh-pages
           folder: src/.vuepress/dist
-      - name: 上传至阿里云OSS
-        uses: fangbinwei/aliyun-oss-website-action@v1
-        with:
-            accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
-            accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
-            bucket: yimoblogs
-            # use your own endpoint
-            endpoint: oss-cn-hangzhou.aliyuncs.com
-            folder: src/.vuepress/dist
+      # 使用 vercel
+      # - name: 上传至阿里云OSS
+      #   uses: fangbinwei/aliyun-oss-website-action@v1
+      #   with:
+      #       accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+      #       accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
+      #       bucket: yimoblogs
+      #       # use your own endpoint
+      #       endpoint: oss-cn-hangzhou.aliyuncs.com
+      #       folder: src/.vuepress/dist
