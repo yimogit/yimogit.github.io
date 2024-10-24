@@ -14,7 +14,7 @@ export default hopeTheme({
   iconAssets: "fontawesome-with-brands",
 
   logo: "/logo.svg",
-
+  favicon: "favicon.ico",
   repo: "yimogit",
 
   docsDir: "src",
