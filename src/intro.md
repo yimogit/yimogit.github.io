@@ -1,8 +1,10 @@
 ---
-icon: circle-info
-cover: /assets/images/cover3.jpg
+# icon: circle-info
+# cover: /assets/images/cover3.jpg
+date: 1995-10-24
+order: 999
 ---
 
-# 介绍页
+# 关于我
 
-一个程序猿~
+我是易墨，一个全栈程序猿，一个分享者！

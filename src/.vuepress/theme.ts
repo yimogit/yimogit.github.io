@@ -30,20 +30,23 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer: "欢迎来到易墨网！",
   displayFooter: true,
-  darkmode:'toggle',
+  darkmode: "toggle",
   // 博客相关
   blog: {
-    description: "一个前端开发者",
+    description: "一个全栈程序猿",
     intro: "/intro.html",
+    timeline: "人生的意义在于寻找，而我正在路上",
     medias: {
-      "Cnblogs": {
-        icon: "/logo.svg",
+      Email: "mailto:wsyimo@qq.com",
+      Github: "https://github.com/yimogit",
+      Cnblogs: {
+        icon: "https://yimogit.github.io/cnblogs.svg",
         link: "https://morang.cnblogs.com/",
       },
-      "Juejin": {
-        icon: "/logo.svg",
+      Juejin: {
+        icon: "https://yimogit.github.io/juejin.svg",
         link: "https://juejin.cn/user/254742426303544/posts",
       },
     },
@@ -66,6 +69,7 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
+    watermark: true,
     searchPro: true,
     blog: true,
 
@@ -215,4 +219,5 @@ export default hopeTheme({
     //   plugins: ["highlight", "math", "search", "notes", "zoom"],
     // },
   },
+  lastUpdated: false,
 });

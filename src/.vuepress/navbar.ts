@@ -27,29 +27,45 @@ export default navbar([
       },
     ],
   },
+  // {
+  //   text: "一些项目",
+  //   icon: "star",
+  //   prefix: "/project/",
+  //   children: [
+  //     {
+  //       text: "Emo.Dev 代码生成器",
+  //       link: "https://github.com/yimogit/Emo.Dev",
+  //     },
+  //   ],
+  // },
   {
-    text: "一些项目",
-    icon: "star",
-    prefix: "/project/",
-    children: [
-      {
-        text: "Emo.Dev 代码生成器",
-        link: "https://github.com/yimogit/Emo.Dev",
-      },
-    ],
-  },
-  {
-    text: "一些玩具",
+    text: "一些轮子",
     icon: "sliders",
     prefix: "/tools/",
     children: [
       {
-        text: "metools-plugin",
+        text: "MeTools 日常工具集",
         link: "https://github.com/yimogit/metools-plugin",
       },
       {
-        text: "vue-mui-app",
-        link: "https://github.com/yimogit/vue-mui-app",
+        text: "CoverView 封面生成器",
+        link: "https://github.com/yimogit/CoverView",
+      },
+      {
+        text: "EmoDev 代码生成器",
+        link: "https://github.com/yimogit/Emo.Dev",
+      },
+      {
+        text: "一些尝试",
+        children: [
+          { text: "模板替换工具", link: "https://github.com/yimogit/ExcelDocTxtTemplateReplace" },
+          { text: "一个自动化签到程序", link: "https://github.com/yimogit/YimoCustomizedSign" },
+          { text: "vue 模板封装", link: "https://github.com/yimogit/vue-template" },
+          { text: "vue-layui 封装", link: "https://github.com/yimogit/vue-layui" },
+          { text: "vue-ElementUI 模板封装", link: "https://github.com/yimogit/me-admin-template" },
+          { text: "vue-ElementUI npm包封装", link: "https://github.com/yimogit/me-admin-sdk" },
+          { text: "vue 项目经验总结", link: "https://github.com/yimogit/vue-project-summary" },
+        ],
       },
     ],
   },

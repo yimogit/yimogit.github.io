@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: "/",
 
   lang: "zh-CN",
-  title: "易墨的个人博客",
+  title: "易墨网",
   description: "一个程序猿的博客记录",
 
   theme,

@@ -1,13 +1,12 @@
 ---
 title: Hyper-V 安装 CentOS 8.5
-icon: pen-to-square
 date: 2024-10-24
 category:
   - DevOps
 tag:
-  - DevOps
-star: true
-sticky: true
+  - 虚拟机
+  - HyperV
+  - CentOS
 ---
 
 ## 前言
