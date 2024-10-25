@@ -1,6 +1,6 @@
 ---
 title: 中台框架后端项目 Admin.Core 的介绍与配置说明
-date: 2024-10-23
+date: 2024-10-24
 category:
   - Admin.Core
 tag:

@@ -1,8 +1,10 @@
 ---
-title: 中台项目文章
+title: 中台项目 Admin.Core 系列文章
 icon: laptop-code
-order: 0
 star: true
+order: 10
 ---
 
-xxxxx
+> 中台项目 Admin.Core 系列文章
+
+<Catalog />

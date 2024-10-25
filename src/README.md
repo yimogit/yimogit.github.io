@@ -6,7 +6,7 @@ title: 易墨网
 heroImage: /logo.svg
 heroText: 易墨
 heroFullScreen: false
-tagline: 人生的意义在于寻找，而我正在路上
+tagline: 有美人兮，见之不忘，一日不见兮，思之如狂
 projects:
   - icon: link
     name: Github

@@ -26,9 +26,12 @@ export default hopeTheme({
     center: ["Links"],
     end: ["Language", "Repo", "Outlook", "Search"],
   },
+  //导航栏层级
+  headerDepth: 4,
   // 侧边栏
   sidebar,
-
+  //侧边栏排序
+  sidebarSorter: ["readme", "order", "date", "filename", "title"],
   // 页脚
   footer: "欢迎来到易墨网！",
   displayFooter: true,
@@ -37,7 +40,7 @@ export default hopeTheme({
   blog: {
     description: "一个全栈程序猿",
     intro: "/intro.html",
-    timeline: "人生的意义在于寻找，而我正在路上",
+    timeline: "未来",
     medias: {
       Email: "mailto:wsyimo@qq.com",
       Github: "https://github.com/yimogit",
@@ -61,7 +64,7 @@ export default hopeTheme({
 
   // 多语言配置
   metaLocales: {
-    editLink: "编辑此页"
+    editLink: "编辑此页",
   },
 
   // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
