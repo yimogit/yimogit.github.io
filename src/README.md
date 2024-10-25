@@ -5,7 +5,7 @@ icon: home
 title: 易墨网
 heroImage: /logo.svg
 heroText: 易墨
-heroFullScreen: true
+heroFullScreen: false
 tagline: 人生的意义在于寻找，而我正在路上
 projects:
   - icon: link
