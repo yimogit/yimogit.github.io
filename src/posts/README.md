@@ -1,10 +1,11 @@
 ---
-title: 随笔
+title: 文章
 icon: laptop-code
 star: false
-order: 1
+date: 1995-10-25
+article: false
 ---
 
-> 我的随笔列表
+> 我的文章列表
 
 <Catalog />
