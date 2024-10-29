@@ -19,7 +19,7 @@ export default navbar([
     children: [
       {
         text: "Admin.Core 中台项目实践",
-        link: "admin.core/",
+        link: "admincore/",
       },
       {
         text: "DevOps 项目实践",
