@@ -1,0 +1,176 @@
+import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as a,e,o as i}from"./app-CzakNbIb.js";const l="/assets/662652-20240120163222940-787564205-_OfRG6EB.png",p="/assets/662652-20240120163222869-831939644-BG0xJcKA.png",c="/assets/662652-20240120163222922-1404251219-D0TB9AXP.png",t="/assets/662652-20240120163222871-422465144-Dx-5slH_.png",d="/assets/662652-20240120163222913-1130201365-DX-GLnNp.png",r="/assets/662652-20240120163222876-1437400597-DNDB48uO.png",o="/assets/662652-20240120162959557-950502628-CNi6wiJ9.png",v="/assets/662652-20240120162959570-1948272292-CG8babVo.png",h={};function u(m,s){return i(),a("div",null,s[0]||(s[0]=[e('<h2 id="前言" tabindex="-1"><a class="header-anchor" href="#前言"><span>前言</span></a></h2><blockquote><p>ELK 是指 Elasticsearch、Logstash 和 Kibana 这三个开源软件的组合。</p><p>Elasticsearch 是一个分布式的搜索和分析引擎，用于日志的存储,搜索,分析,查询。</p><p>Logstash 是一个数据收集、转换和传输工具，用于收集过滤和转换数据，然后将其发送到 Elasticsearch 或其他目标存储中。</p><p>Kibana 是一个数据可视化平台，通过与 Elasticsearch 的集成，提供了强大的数据分析和仪表盘功能。</p><p>Filebeat 是 Elastic Stack（ELK）中的一个组件，用于轻量级的日志文件收集和转发。它能够实时监控指定的日志文件，并将其发送到 Elasticsearch 或 Logstash 进行处理和分析。</p></blockquote><p>ELK的架构有多种，本篇分享使用的架构如图所示： Beats(Filebeat) -&gt; -&gt; Elasticsearch -&gt; Kibana，目前生产环境一天几千万的日志，内存占用大概 10G 左右</p><figure><img src="'+l+'" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h3 id="特点" tabindex="-1"><a class="header-anchor" href="#特点"><span>特点</span></a></h3><ul><li>开源免费</li><li>灵活性和可扩展性，高可用性，易扩展，支持集群</li><li>高效的搜索和分析功能</li><li>实时性</li><li>易于使用</li></ul><h3 id="使用情况" tabindex="-1"><a class="header-anchor" href="#使用情况"><span>使用情况</span></a></h3><ul><li>目前微服务项目使用，ELK单机部署，处理千万级日志无压力</li><li>使用 Kibana 做了面板，根据面板监控系统情况</li><li>使用 Docker 部署，方便快捷</li><li>上手用还算简单，但是弄懂这一套，就不是那么容易了</li><li>提炼出 docker compose 配置，分分钟部署好</li></ul><h2 id="实践" tabindex="-1"><a class="header-anchor" href="#实践"><span>实践</span></a></h2><h3 id="准备" tabindex="-1"><a class="header-anchor" href="#准备"><span>准备</span></a></h3><ul><li>一台 linxu 服务器，内存 8G+</li><li>安装 docker,docker compose</li><li>新机器搭建后的运行情况，限制了Elasticsearch的jvm参数 4g</li></ul><figure><img src="'+p+'" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><ul><li>本篇文件目录结构,完整文件在Github <a href="https://github.com/yimogit/MeDevOps/tree/main/elk" target="_blank" rel="noopener noreferrer">MeDevOps 仓库</a></li></ul><figure><img src="'+c+`" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h3 id="安装" tabindex="-1"><a class="header-anchor" href="#安装"><span>安装</span></a></h3><p>本篇 ELK 的版本为 v7.8.1,本篇使用的容器网络为 devopsnetwork ，需创建 <code>docker network create devopsnetwork</code></p><h4 id="elasticsearch-使用-docker-compose-安装" tabindex="-1"><a class="header-anchor" href="#elasticsearch-使用-docker-compose-安装"><span>Elasticsearch 使用 docker compose 安装</span></a></h4><ul><li><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.8/docker.html" target="_blank" rel="noopener noreferrer">官方使用 Docker 安装文档</a></p></li><li><p>compose.yml</p><ul><li>指定了jvm参数：4g</li><li>暴露端口 9200：该端口是Elasticsearch REST API的默认端口。</li><li>暴露端口 9300：该端口是Elasticsearch节点之间的内部通信端口，默认用于节点之间的集群通信</li><li>挂载数据目录 <code>./data</code>及配置文件<code>./config/elasticsearch.yml</code></li><li>需要对两个目录进行授权，这里直接用了777，也可以根据官网使用对应es的用户id 1000</li></ul></li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>version: &#39;3.1&#39;</span></span>
+<span class="line"><span>services:</span></span>
+<span class="line"><span>  elk_elasticsearch:</span></span>
+<span class="line"><span>    image: elasticsearch:7.8.1</span></span>
+<span class="line"><span>    container_name: elk_elasticsearch</span></span>
+<span class="line"><span>    restart: always</span></span>
+<span class="line"><span>    environment:</span></span>
+<span class="line"><span>      - discovery.type=single-node</span></span>
+<span class="line"><span>      - ES_JAVA_OPTS=-Xms4096m -Xmx4096m</span></span>
+<span class="line"><span>    ports:</span></span>
+<span class="line"><span>      - 9200:9200 </span></span>
+<span class="line"><span>      - 9300:9300 </span></span>
+<span class="line"><span>    volumes:</span></span>
+<span class="line"><span>      # 授权 chmod 777 ./config/ &amp;&amp; chmod 777 ./data/</span></span>
+<span class="line"><span>      - ./data:/usr/share/elasticsearch/data</span></span>
+<span class="line"><span>      - ./config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml</span></span>
+<span class="line"><span>    networks:</span></span>
+<span class="line"><span>      - devopsnetwork</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>networks:</span></span>
+<span class="line"><span>  devopsnetwork:</span></span>
+<span class="line"><span>    external: true</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>config/elasticsearch.yml</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>network.host: 0.0.0.0</span></span>
+<span class="line"><span>xpack:</span></span>
+<span class="line"><span>  ml.enabled: false</span></span>
+<span class="line"><span>  monitoring.enabled: false</span></span>
+<span class="line"><span>  security.enabled: false</span></span>
+<span class="line"><span>  watcher.enabled: false</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>将其拷贝到服务器执行启动即可</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>#cd /app/elasticsearch</span></span>
+<span class="line"><span>mkdir ./config</span></span>
+<span class="line"><span>mkdir ./data</span></span>
+<span class="line"><span>chmod 777 ./config/ &amp;&amp; chmod 777 ./data/</span></span>
+<span class="line"><span>docker compose up -d</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>验证访问</p><figure><img src="`+t+`" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h4 id="logstash-使用-docker-compose-安装" tabindex="-1"><a class="header-anchor" href="#logstash-使用-docker-compose-安装"><span>Logstash 使用 docker compose 安装</span></a></h4><ul><li><p><a href="https://www.elastic.co/guide/en/logstash/7.8/docker-config.html" target="_blank" rel="noopener noreferrer">官方使用 Docker 安装 文档</a></p></li><li><p>compose.yml</p><ul><li>暴露端口5044：用于接收来自其他主机的日志数据、</li><li>挂载的 <code>./pipeline</code>和<code>./config</code>目录可以运行容器复制出来</li><li>需要将./config/logstash.yml 和 ./pipeline/logstash.conf 改成es地址，<a href="https://github.com/yimogit/MeDevOps/tree/main/elk/logstash" target="_blank" rel="noopener noreferrer">参考</a></li></ul></li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>version: &#39;3.1&#39;</span></span>
+<span class="line"><span>services:</span></span>
+<span class="line"><span>  elk_logstash:</span></span>
+<span class="line"><span>    image: logstash:7.17.16</span></span>
+<span class="line"><span>    container_name: elk_logstash</span></span>
+<span class="line"><span>    restart: always</span></span>
+<span class="line"><span>    ports:</span></span>
+<span class="line"><span>      - 5044:5044 </span></span>
+<span class="line"><span>    volumes:</span></span>
+<span class="line"><span>     # 授权 chmod 777 ./logs/ &amp;&amp; chmod 777 ./data/ &amp;&amp; chmod 777 ./pipeline/ &amp;&amp; chmod 777 ./config/ </span></span>
+<span class="line"><span>      - /etc/timezone:/etc/timezone</span></span>
+<span class="line"><span>      - /etc/localtime:/etc/localtime:ro</span></span>
+<span class="line"><span>      - ./logs:/usr/share/logstash/logs</span></span>
+<span class="line"><span>      - ./data:/usr/share/logstash/data</span></span>
+<span class="line"><span>      - ./pipeline:/usr/share/logstash/pipeline</span></span>
+<span class="line"><span>      - ./config:/usr/share/logstash/config</span></span>
+<span class="line"><span>    networks:</span></span>
+<span class="line"><span>      - devopsnetwork</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>networks:</span></span>
+<span class="line"><span>  devopsnetwork:</span></span>
+<span class="line"><span>    external: true</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li><p>pipeline/logstash.conf</p><ul><li>根据需要修改 output ，这里将推送到es地址中</li><li><a href="https://www.elastic.co/guide/en/logstash/7.8/plugins-outputs-elasticsearch.html" target="_blank" rel="noopener noreferrer">输出插件文档</a></li></ul></li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>input {</span></span>
+<span class="line"><span>    beats {</span></span>
+<span class="line"><span>        port =&gt; 5044</span></span>
+<span class="line"><span>        codec =&gt; json {</span></span>
+<span class="line"><span>            charset =&gt; &quot;UTF-8&quot;</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>filter {  </span></span>
+<span class="line"><span> </span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>output {</span></span>
+<span class="line"><span>    elasticsearch { </span></span>
+<span class="line"><span>      hosts =&gt; [&quot;http://192.168.123.102:9200&quot;]</span></span>
+<span class="line"><span>      index =&gt; &quot;%{[app]}-%{+YYYY.MM.dd}&quot; </span></span>
+<span class="line"><span>  }    </span></span>
+<span class="line"><span>  stdout { </span></span>
+<span class="line"><span>    codec =&gt; rubydebug </span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>将其拷贝到服务器执行启动即可</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>mkdir ./data</span></span>
+<span class="line"><span>mkdir ./logs</span></span>
+<span class="line"><span>chmod 777 ./logs/ &amp;&amp; chmod 777 ./data/ &amp;&amp; chmod 777 ./pipeline/ &amp;&amp; chmod 777 ./config/ </span></span>
+<span class="line"><span>docker compose up -d</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="kibana-使用-docker-compose-安装" tabindex="-1"><a class="header-anchor" href="#kibana-使用-docker-compose-安装"><span>Kibana 使用 docker compose 安装</span></a></h4><ul><li><p><a href="https://www.elastic.co/guide/en/beats/filebeat/7.8/running-on-docker.html#_run_the_filebeat_setup" target="_blank" rel="noopener noreferrer">官方使用 Docker 安装文档</a></p></li><li><p>compose.yml</p><ul><li>指定es节点是单节点，多节点使用zen</li><li>挂载配置文件 <code>./config/kibana.yml</code></li><li>暴露端口 5601：面板访问端口</li></ul></li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>version: &#39;3.1&#39;</span></span>
+<span class="line"><span>services:</span></span>
+<span class="line"><span>  elk_kibana:</span></span>
+<span class="line"><span>    image: kibana:7.8.1</span></span>
+<span class="line"><span>    container_name: elk_kibana</span></span>
+<span class="line"><span>    restart: always</span></span>
+<span class="line"><span>    environment:</span></span>
+<span class="line"><span>      - discovery.type=single-node</span></span>
+<span class="line"><span>    ports:</span></span>
+<span class="line"><span>      - 5601:5601 </span></span>
+<span class="line"><span>    volumes:</span></span>
+<span class="line"><span>      - ./config/kibana.yml:/usr/share/kibana/config/kibana.yml</span></span>
+<span class="line"><span>    networks:</span></span>
+<span class="line"><span>      - devopsnetwork</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>networks:</span></span>
+<span class="line"><span>  devopsnetwork:</span></span>
+<span class="line"><span>    external: true</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>config/kibana.yml</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>server.host: &quot;0.0.0.0&quot;</span></span>
+<span class="line"><span>elasticsearch.hosts: [&quot;http://192.168.123.102:9200/&quot;]</span></span>
+<span class="line"><span>i18n.locale: &quot;zh-CN&quot;</span></span>
+<span class="line"><span>xpack:</span></span>
+<span class="line"><span>  apm.ui.enabled: false</span></span>
+<span class="line"><span>  graph.enabled: false</span></span>
+<span class="line"><span>  ml.enabled: false</span></span>
+<span class="line"><span>  monitoring.enabled: false</span></span>
+<span class="line"><span>  reporting.enabled: false</span></span>
+<span class="line"><span>  security.enabled: false</span></span>
+<span class="line"><span>  grokdebugger.enabled: false</span></span>
+<span class="line"><span>  searchprofiler.enabled: false</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>将其拷贝到服务器执行启动即可</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>docker compose up -d</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><figure><img src="`+d+`" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h4 id="filebeat-使用-docker-compose-安装" tabindex="-1"><a class="header-anchor" href="#filebeat-使用-docker-compose-安装"><span>Filebeat 使用 docker compose 安装</span></a></h4><ul><li><p>compose.yml</p><ul><li>挂载filebeat的配置文件，数据目录及日志目录，需要设置权限</li><li>挂载容器外的日志到容器内的日志采集目录</li></ul></li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>version: &#39;3.1&#39;</span></span>
+<span class="line"><span>services:</span></span>
+<span class="line"><span>  elk_filebeat:</span></span>
+<span class="line"><span>    image: elastic/filebeat:7.8.1</span></span>
+<span class="line"><span>    container_name: elk_filebeat</span></span>
+<span class="line"><span>    restart: always</span></span>
+<span class="line"><span>    volumes:</span></span>
+<span class="line"><span>      # 授权 chmod 777 ./config/ &amp;&amp; chmod 777 ./data/ &amp;&amp; chmod 777 ./logs/ &amp;&amp; chmod 777 /app/logs</span></span>
+<span class="line"><span>      - ./config/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro</span></span>
+<span class="line"><span>      - ./data:/usr/share/filebeat/data </span></span>
+<span class="line"><span>      - ./logs:/usr/share/filebeat/logs</span></span>
+<span class="line"><span>      - /app/logs:/app/logs</span></span>
+<span class="line"><span>    networks:</span></span>
+<span class="line"><span>      - devopsnetwork</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>networks:</span></span>
+<span class="line"><span>  devopsnetwork:</span></span>
+<span class="line"><span>    external: true</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li><p>config/filebeat.yml</p><ul><li>hosts 节点需要配置 logstash 地址</li><li>paths 指定日志目录</li></ul></li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span></span></span>
+<span class="line"><span>output.logstash:</span></span>
+<span class="line"><span>  #logstash hosts</span></span>
+<span class="line"><span>  hosts: [&quot;192.168.123.102:5044&quot;]</span></span>
+<span class="line"><span>fields_under_root: true    </span></span>
+<span class="line"><span>filebeat.inputs: </span></span>
+<span class="line"><span> - type: log</span></span>
+<span class="line"><span>   enabled: true</span></span>
+<span class="line"><span>   paths:</span></span>
+<span class="line"><span>       - /app/logs/*/*.log    </span></span>
+<span class="line"><span>   close_older: 24h</span></span>
+<span class="line"><span>   ignore_older: 24h   </span></span>
+<span class="line"><span>   json.keys_under_root: true</span></span>
+<span class="line"><span>   json.overwrite_keys: true</span></span>
+<span class="line"><span>   encoding: utf-8 </span></span>
+<span class="line"><span>filebeat.config.modules: </span></span>
+<span class="line"><span>  path: \${path.config}/modules.d/*.yml </span></span>
+<span class="line"><span>  reload.enabled: false</span></span>
+<span class="line"><span>setup.template.settings:</span></span>
+<span class="line"><span>  index.number_of_shards: 3  </span></span>
+<span class="line"><span>processors:</span></span>
+<span class="line"><span>  - add_host_metadata: ~</span></span>
+<span class="line"><span>  - add_cloud_metadata: ~  </span></span>
+<span class="line"><span>  - drop_fields:    </span></span>
+<span class="line"><span>      fields: [&quot;log&quot;,&quot;@version&quot;,&quot;ecs&quot;,&quot;agent&quot;,&quot;beat&quot;,&quot;host&quot;,&quot;beat.hostname&quot;,&quot;beat.version&quot;,&quot;beat.name&quot;,&quot;prospector.type&quot;,&quot;input.type&quot;,&quot;host.id&quot;,&quot;host.name&quot;,&quot;host.os.build&quot;,&quot;host.os.family&quot;,&quot;host.os.name&quot;,&quot;host.os.platform&quot;,&quot;host.os.platform&quot;,&quot;log.file.path&quot;,&quot;tags&quot;,&quot;offset&quot;,&quot;host.architecture&quot;,&quot;host.os.version&quot;]</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="安全使用" tabindex="-1"><a class="header-anchor" href="#安全使用"><span>安全使用</span></a></h3><h4 id="配置-nginx-域名转发" tabindex="-1"><a class="header-anchor" href="#配置-nginx-域名转发"><span>配置 nginx 域名转发</span></a></h4><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>server {</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    listen 80;</span></span>
+<span class="line"><span>    listen       443 ssl;</span></span>
+<span class="line"><span>    server_name kibana.devops.test.com;  # 自行修改成你的域名</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    ssl_certificate      /certs/kibana.devops.test.com/server.crt;</span></span>
+<span class="line"><span>    ssl_certificate_key  /certs/kibana.devops.test.com/server.key;</span></span>
+<span class="line"><span>    ssl_session_cache    shared:SSL:1m;</span></span>
+<span class="line"><span>    ssl_session_timeout  5m;</span></span>
+<span class="line"><span>    ssl_ciphers  HIGH:!aNULL:!MD5;</span></span>
+<span class="line"><span>    ssl_prefer_server_ciphers  on;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>    location / {</span></span>
+<span class="line"><span>            proxy_pass http://192.168.123.102:5601;</span></span>
+<span class="line"><span>            proxy_http_version 1.1;</span></span>
+<span class="line"><span>            proxy_buffering off;</span></span>
+<span class="line"><span>            proxy_request_buffering off;</span></span>
+<span class="line"><span>            proxy_set_header Upgrade $http_upgrade;</span></span>
+<span class="line"><span>            proxy_set_header Connection &quot;upgrade&quot;;</span></span>
+<span class="line"><span>            proxy_set_header Host $host;</span></span>
+<span class="line"><span>            proxy_set_header X-Forwarded-For $remote_addr;</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>配置完成，即可使用域名访问</p><figure><img src="`+r+`" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h4 id="配置-nginx-基本认证" tabindex="-1"><a class="header-anchor" href="#配置-nginx-基本认证"><span>配置 nginx 基本认证</span></a></h4><p>在Nginx配置文件中添加以下内容</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>location / {</span></span>
+<span class="line"><span>    auth_basic &quot;Restricted Content&quot;;</span></span>
+<span class="line"><span>    auth_basic_user_file /certs/kibana.devops.test.com/passwd;</span></span>
+<span class="line"><span>    ...</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>添加对应的passwd文件，使用 htpasswd 生成，如账号密码是 root devops666 的配置文件</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>root:WvesKBTr22.wY</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>可以使用我 <a href="https://github.com/yimogit/metools-plugin" target="_blank" rel="noopener noreferrer">metools</a> 工具的 <a href="https://metools.js.org/#/genpwd" target="_blank" rel="noopener noreferrer">密码生成器</a> 生成</p><figure><img src="`+o+'" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><p>配置完成，重载配置后刷新页面就提示输入账号密码了</p><figure><img src="'+v+`" alt="" tabindex="0" loading="lazy"><figcaption></figcaption></figure><h4 id="配置-nginx-ip白名单" tabindex="-1"><a class="header-anchor" href="#配置-nginx-ip白名单"><span>配置 nginx IP白名单</span></a></h4><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>location / {</span></span>
+<span class="line"><span>    allow 192.168.123.201;   # 允许的IP地址</span></span>
+<span class="line"><span>    deny all;              # 拒绝所有其他IP地址</span></span>
+<span class="line"><span>}</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="后语" tabindex="-1"><a class="header-anchor" href="#后语"><span>后语</span></a></h2><blockquote><p>本篇只针对 ELK 的安装进行了介绍及整理对应的 Docker Compose 配置文件，后续即可快速安装配置 ELK 环境，如何与项目结合使用后续再分享</p></blockquote>`,63)]))}const k=n(h,[["render",u],["__file","devops_docker_elk_install_nginx_config.html.vue"]]),f=JSON.parse('{"path":"/posts/docker/devops_docker_elk_install_nginx_config.html","title":"使用 Docker Compose V2 快速搭建日志分析平台 ELK (Elasticsearch、Logstash 和 Kibana)","lang":"zh-CN","frontmatter":{"title":"使用 Docker Compose V2 快速搭建日志分析平台 ELK (Elasticsearch、Logstash 和 Kibana)","date":"2024-01-20T16:36:00.000Z","category":["Docker"],"tag":["devops","docker","docker-compose","elk"],"description":"前言 ELK 是指 Elasticsearch、Logstash 和 Kibana 这三个开源软件的组合。 Elasticsearch 是一个分布式的搜索和分析引擎，用于日志的存储,搜索,分析,查询。 Logstash 是一个数据收集、转换和传输工具，用于收集过滤和转换数据，然后将其发送到 Elasticsearch 或其他目标存储中。 Kibana ...","head":[["meta",{"property":"og:url","content":"https://www.yimo.link/posts/docker/devops_docker_elk_install_nginx_config.html"}],["meta",{"property":"og:site_name","content":"易墨网"}],["meta",{"property":"og:title","content":"使用 Docker Compose V2 快速搭建日志分析平台 ELK (Elasticsearch、Logstash 和 Kibana)"}],["meta",{"property":"og:description","content":"前言 ELK 是指 Elasticsearch、Logstash 和 Kibana 这三个开源软件的组合。 Elasticsearch 是一个分布式的搜索和分析引擎，用于日志的存储,搜索,分析,查询。 Logstash 是一个数据收集、转换和传输工具，用于收集过滤和转换数据，然后将其发送到 Elasticsearch 或其他目标存储中。 Kibana ..."}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"og:updated_time","content":"2024-10-28T11:15:42.000Z"}],["meta",{"property":"article:tag","content":"devops"}],["meta",{"property":"article:tag","content":"docker"}],["meta",{"property":"article:tag","content":"docker-compose"}],["meta",{"property":"article:tag","content":"elk"}],["meta",{"property":"article:published_time","content":"2024-01-20T16:36:00.000Z"}],["meta",{"property":"article:modified_time","content":"2024-10-28T11:15:42.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"使用 Docker Compose V2 快速搭建日志分析平台 ELK (Elasticsearch、Logstash 和 Kibana)\\",\\"image\\":[\\"\\"],\\"datePublished\\":\\"2024-01-20T16:36:00.000Z\\",\\"dateModified\\":\\"2024-10-28T11:15:42.000Z\\",\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"易墨\\",\\"url\\":\\"https://www.yimo.link\\"}]}"]]},"headers":[{"level":2,"title":"前言","slug":"前言","link":"#前言","children":[{"level":3,"title":"特点","slug":"特点","link":"#特点","children":[]},{"level":3,"title":"使用情况","slug":"使用情况","link":"#使用情况","children":[]}]},{"level":2,"title":"实践","slug":"实践","link":"#实践","children":[{"level":3,"title":"准备","slug":"准备","link":"#准备","children":[]},{"level":3,"title":"安装","slug":"安装","link":"#安装","children":[{"level":4,"title":"Elasticsearch 使用 docker compose 安装","slug":"elasticsearch-使用-docker-compose-安装","link":"#elasticsearch-使用-docker-compose-安装","children":[]},{"level":4,"title":"Logstash 使用 docker compose 安装","slug":"logstash-使用-docker-compose-安装","link":"#logstash-使用-docker-compose-安装","children":[]},{"level":4,"title":"Kibana 使用 docker compose 安装","slug":"kibana-使用-docker-compose-安装","link":"#kibana-使用-docker-compose-安装","children":[]},{"level":4,"title":"Filebeat 使用 docker compose 安装","slug":"filebeat-使用-docker-compose-安装","link":"#filebeat-使用-docker-compose-安装","children":[]}]},{"level":3,"title":"安全使用","slug":"安全使用","link":"#安全使用","children":[{"level":4,"title":"配置 nginx 域名转发","slug":"配置-nginx-域名转发","link":"#配置-nginx-域名转发","children":[]},{"level":4,"title":"配置 nginx 基本认证","slug":"配置-nginx-基本认证","link":"#配置-nginx-基本认证","children":[]},{"level":4,"title":"配置 nginx IP白名单","slug":"配置-nginx-ip白名单","link":"#配置-nginx-ip白名单","children":[]}]}]},{"level":2,"title":"后语","slug":"后语","link":"#后语","children":[]}],"git":{"createdTime":1730114142000,"updatedTime":1730114142000,"contributors":[{"name":"yimo","email":"yimo@wikiglobal.com","commits":1}]},"readingTime":{"minutes":4.96,"words":1488},"filePathRelative":"posts/docker/devops_docker_elk_install_nginx_config.md","localizedDate":"2024年1月20日","excerpt":"<h2>前言</h2>\\n<blockquote>\\n<p>ELK 是指 Elasticsearch、Logstash 和 Kibana 这三个开源软件的组合。</p>\\n<p>Elasticsearch 是一个分布式的搜索和分析引擎，用于日志的存储,搜索,分析,查询。</p>\\n<p>Logstash 是一个数据收集、转换和传输工具，用于收集过滤和转换数据，然后将其发送到 Elasticsearch 或其他目标存储中。</p>\\n<p>Kibana 是一个数据可视化平台，通过与 Elasticsearch 的集成，提供了强大的数据分析和仪表盘功能。</p>\\n<p>Filebeat 是 Elastic Stack（ELK）中的一个组件，用于轻量级的日志文件收集和转发。它能够实时监控指定的日志文件，并将其发送到 Elasticsearch 或 Logstash 进行处理和分析。</p>\\n</blockquote>","autoDesc":true}');export{k as comp,f as data};
