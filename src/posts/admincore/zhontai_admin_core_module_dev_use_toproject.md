@@ -2,7 +2,7 @@
 title: 中台框架模块开发实践-用 Admin.Core 代码生成器生成通用代码生成器的模块代码
 date: 2024-07-01 09:01:00
 category:
-  - Admin.Core
+  - DotNetCore
 tag:
   - .net core
   - admin.core

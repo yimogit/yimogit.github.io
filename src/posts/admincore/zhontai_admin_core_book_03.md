@@ -2,7 +2,7 @@
 title: 03.前后端分离中台框架 zhontai 项目代码生成器的使用
 date: 2023-08-22 19:22:00
 category:
-  - Admin.Core
+  - DotNetCore
 tag:
   - .net core
   - vue

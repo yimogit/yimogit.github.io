@@ -2,7 +2,7 @@
 title: 中台框架模块开发实践-代码生成器的添加及使用
 date: 2024-06-24 09:01:00
 category:
-  - Admin.Core
+  - DotNetCore
 tag:
   - .net core
   - zhontai

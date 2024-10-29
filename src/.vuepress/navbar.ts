@@ -16,28 +16,8 @@ export default navbar([
     text: "合集",
     icon: "newspaper",
     prefix: "/posts/",
-    children: [
-      {
-        text: "Admin.Core 中台项目实践",
-        link: "admincore/",
-      },
-      {
-        text: "DevOps 项目实践",
-        link: "devops/",
-      },
-    ],
+    children: ["admincore/","devops/","developer/","web/","docker/","dotnetcore/"]
   },
-  // {
-  //   text: "一些项目",
-  //   icon: "star",
-  //   prefix: "/project/",
-  //   children: [
-  //     {
-  //       text: "Emo.Dev 代码生成器",
-  //       link: "https://github.com/yimogit/Emo.Dev",
-  //     },
-  //   ],
-  // },
   {
     text: "一些轮子",
     icon: "sliders",

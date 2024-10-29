@@ -2,7 +2,7 @@
 title: 01.前后端分离中台框架后端 Admin.Core 学习-介绍与配置说明
 date: 2023-08-20 17:58:00
 category:
-  - Admin.Core
+  - DotNetCore
 tag:
   - .net core
   - admin.core

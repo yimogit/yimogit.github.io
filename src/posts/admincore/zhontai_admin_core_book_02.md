@@ -2,7 +2,7 @@
 title: 02.前后端分离中台框架前端 admin.ui.plus 学习-介绍与简单使用
 date: 2023-08-21 21:06:00
 category:
-  - Admin.Core
+  - DotNetCore
 tag:
   - vue
   - zhontai

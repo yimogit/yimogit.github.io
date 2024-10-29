@@ -2,7 +2,7 @@
 title: 04.使用 github actions+docker 自动部署前后端分离项目 zhontai (.net core+vue)
 date: 2023-08-28 00:20:00
 category:
-  - Admin.Core
+  - DotNetCore
 tag:
   - .net core
   - docker
