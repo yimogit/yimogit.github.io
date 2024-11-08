@@ -45,13 +45,13 @@ export default hopeTheme({
     timeline: "未来",
     medias: {
       Github: "https://github.com/yimogit",
-      Cnblogs: {
-        icon: "https://www.yimo.link/cnblogs.svg",
-        link: "https://morang.cnblogs.com/",
-      },
       Juejin: {
         icon: "https://www.yimo.link/juejin.svg",
         link: "https://juejin.cn/user/254742426303544/posts",
+      },
+      Cnblogs: {
+        icon: "https://www.yimo.link/cnblogs.svg",
+        link: "https://morang.cnblogs.com/",
       },
       Email: "mailto:wsyimo@qq.com",
     },
