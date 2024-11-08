@@ -42,7 +42,6 @@ export default hopeTheme({
     intro: "/intro.html",
     timeline: "未来",
     medias: {
-      Email: "mailto:wsyimo@qq.com",
       Github: "https://github.com/yimogit",
       Cnblogs: {
         icon: "https://www.yimo.link/cnblogs.svg",
@@ -52,6 +51,7 @@ export default hopeTheme({
         icon: "https://www.yimo.link/juejin.svg",
         link: "https://juejin.cn/user/254742426303544/posts",
       },
+      Email: "mailto:wsyimo@qq.com",
     },
   },
 
