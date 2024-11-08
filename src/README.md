@@ -23,7 +23,6 @@ projects:
     desc: 掘金个人主页
     link: https://juejin.cn/user/254742426303544/posts
 
-footer: <a href='https://beian.miit.gov.cn/shouye.html' target='_blank'>蜀ICP备15032981号</a>
 ---
 
 <!-- Hello World! -->

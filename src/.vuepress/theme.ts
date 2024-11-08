@@ -1,5 +1,4 @@
 import { hopeTheme } from "vuepress-theme-hope";
-
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
@@ -33,7 +32,10 @@ export default hopeTheme({
   //侧边栏排序
   sidebarSorter: ["readme", "order", "date", "filename", "title"],
   // 页脚
-  footer: "欢迎来到易墨网！",
+  footer: `欢迎来到易墨网！<a href='https://beian.miit.gov.cn/shouye.html' target='_blank'>蜀ICP备15032981号</a>
+        本文总阅读量 <span id="vercount_value_page_pv">Loading</span> 次
+        本站总访问量 <span id="vercount_value_site_pv">Loading</span> 次
+        本站总访客数 <span id="vercount_value_site_uv">Loading</span> 人`,
   displayFooter: true,
   darkmode: "toggle",
   // 博客相关
@@ -75,9 +77,6 @@ export default hopeTheme({
     watermark: true,
     searchPro: true,
     blog: true,
-
-    // 启用之前需安装 @waline/client
-    // 警告: 这是一个仅供演示的测试服务，在生产环境中请自行部署并使用自己的服务！
     comment: {
       provider: "Giscus",
       repo:"yimogit/yimogit.github.io",
