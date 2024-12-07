@@ -9,6 +9,19 @@ export default defineUserConfig({
   head: [
     ["script", { src: "https://cn.vercount.one/js", defer: "true" }],
     ["script", { src: "https://cloud.umami.is/script.js","data-website-id":"2d883236-5598-4088-9cf8-1663e4962d52", defer: "true" }],
+    [
+      "script",
+      {},
+      `\
+        var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?377eb6118da8824c749617a261eb59ea";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+      `,
+    ],
   ],
   theme,
 
