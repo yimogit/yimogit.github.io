@@ -71,6 +71,11 @@ export default navbar([
     ],
   },
   {
+    text: "友链",
+    icon: "link",
+    link: "/link",
+  },
+  {
     text: "关于我",
     icon: "circle-info",
     link: "/intro",
